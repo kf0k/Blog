@@ -836,19 +836,6 @@
     Always Install Elevated
   </a>
   
-    <nav class="md-nav" aria-label="Always Install Elevated">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exploitation-process" class="md-nav__link">
-    Exploitation Process
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -1105,19 +1092,6 @@
     Always Install Elevated
   </a>
   
-    <nav class="md-nav" aria-label="Always Install Elevated">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exploitation-process" class="md-nav__link">
-    Exploitation Process
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -1138,11 +1112,11 @@
               
                 
                 
-                <h1 id="walkthrough">Walkthrough</h1>
-<h2 id="attack-scenario-diagram">Attack Scenario Diagram</h2>
+                <h1 id="walkthrough">Walkthrough<a class="headerlink" href="#walkthrough" title="Permanent link">&para;</a></h1>
+<h2 id="attack-scenario-diagram">Attack Scenario Diagram<a class="headerlink" href="#attack-scenario-diagram" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="../Walkthrough.assets/love-image.png" /></p>
-<h2 id="recon">Recon</h2>
-<h3 id="nmap">nmap</h3>
+<h2 id="recon">Recon<a class="headerlink" href="#recon" title="Permanent link">&para;</a></h2>
+<h3 id="nmap">nmap<a class="headerlink" href="#nmap" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>~/tmp/htb/exploit
 nmap <span class="m">10</span>.10.10.239 -sC -sV                       
 Starting Nmap <span class="m">7</span>.80 <span class="o">(</span> https://nmap.org <span class="o">)</span> at <span class="m">2021</span>-05-02 <span class="m">09</span>:46 +04
@@ -1183,17 +1157,17 @@ SF:L,4A,<span class="s2">&quot;F\0\0\x01\xffj\x04Host\x20&#39;10\.10\.14\.23&#39
 Service Info: Hosts: www.example.com, LOVE, www.love.htb<span class="p">;</span> OS: Windows<span class="p">;</span> CPE: cpe:/o:microsoft:windows
 </code></pre></div>
 <p>From <code>nmap</code> we found new sub-domain: <code>staing.love.htb</code> </p>
-<h2 id="web-enumeration">Web Enumeration</h2>
-<h3 id="staginglovehtb">staging.love.htb</h3>
+<h2 id="web-enumeration">Web Enumeration<a class="headerlink" href="#web-enumeration" title="Permanent link">&para;</a></h2>
+<h3 id="staginglovehtb">staging.love.htb<a class="headerlink" href="#staginglovehtb" title="Permanent link">&para;</a></h3>
 <p>We found a web page that scans files be passing URLs at <code>http://staging.love.htb/beta.php</code> from it I was able to read local host service <code>http://127.0.0.1:5000</code> , after reading the file source code I was able to obtain admin login credentials: </p>
 <p><img alt="image-20210502102203751" src="../Walkthrough.assets/image-20210502102203751.png" /></p>
 <p><code>admin:@LoveIsInTheAir!!!!</code> </p>
 <p>Then used the credentials to login to the main web page 
 <img alt="" src="../Walkthrough.assets/image-20210502102350081.png" /></p>
-<h3 id="lovehtb">love.htb</h3>
+<h3 id="lovehtb">love.htb<a class="headerlink" href="#lovehtb" title="Permanent link">&para;</a></h3>
 <p>Found that the website is running <code>Voting System</code> </p>
-<h2 id="exploitation">Exploitation</h2>
-<h3 id="file-upload-rce">File Upload RCE</h3>
+<h2 id="exploitation">Exploitation<a class="headerlink" href="#exploitation" title="Permanent link">&para;</a></h2>
+<h3 id="file-upload-rce">File Upload RCE<a class="headerlink" href="#file-upload-rce" title="Permanent link">&para;</a></h3>
 <p>link: https://www.exploit-db.com/exploits/49445</p>
 <p>Exploit: </p>
 <div class="highlight"><pre><span></span><code><span class="o">...</span>
@@ -1207,15 +1181,15 @@ Service Info: Hosts: www.example.com, LOVE, www.love.htb<span class="p">;</span>
 <span class="o">...</span>
 </code></pre></div>
 <p><img alt="image-20210502103609498" src="../Walkthrough.assets/image-20210502103609498.png" /></p>
-<h2 id="post-exploitation">Post Exploitation</h2>
+<h2 id="post-exploitation">Post Exploitation<a class="headerlink" href="#post-exploitation" title="Permanent link">&para;</a></h2>
 <p>After gaining access into the box as <code>phoebe</code> user we can read <code>user.txt</code> flag.</p>
 <div class="highlight"><pre><span></span><code>C:\Users\Phoebe\Desktop&gt;more user.txt
 more user.txt
 6c1971cf2a4dfdb4684c14cf8246e129
 </code></pre></div>
 <hr />
-<h2 id="privilege-escalation">Privilege Escalation</h2>
-<h3 id="winpeas">Winpeas</h3>
+<h2 id="privilege-escalation">Privilege Escalation<a class="headerlink" href="#privilege-escalation" title="Permanent link">&para;</a></h2>
+<h3 id="winpeas">Winpeas<a class="headerlink" href="#winpeas" title="Permanent link">&para;</a></h3>
 <p>First of all, I uploaded <code>winpeas</code> into the target machine and run it. And found interesting output. </p>
 <p><code>....
   [+] Checking AlwaysInstallElevated
@@ -1223,7 +1197,7 @@ more user.txt
     AlwaysInstallElevated set to 1 in HKLM!
     AlwaysInstallElevated set to 1 in HKCU!
 ...</code></p>
-<h3 id="always-install-elevated">Always Install Elevated</h3>
+<h3 id="always-install-elevated">Always Install Elevated<a class="headerlink" href="#always-install-elevated" title="Permanent link">&para;</a></h3>
 <p>When checking user privileges, we will found that the user have <code>SeChangeNotifyPrivilege</code> </p>
 <div class="highlight"><pre><span></span><code><span class="nl">c</span><span class="p">:</span><span class="err">\</span><span class="n">Windows</span><span class="err">\</span><span class="n">Temp</span><span class="o">&gt;</span><span class="n">whoami</span><span class="w"> </span><span class="o">/</span><span class="n">priv</span><span class="w"></span>
 <span class="n">whoami</span><span class="w"> </span><span class="o">/</span><span class="n">priv</span><span class="w"></span>
@@ -1243,7 +1217,7 @@ more user.txt
 </code></pre></div>
 <p>Furthermore, from <code>Winpeas</code> we Identified that the user also having <code>Always Install Evevated</code> privileges so we can abuse it to escluate our privileges. </p>
 <p>See the following link: https://ed4m4s.blog/privilege-escalation/windows/always-install-elevated</p>
-<h4 id="exploitation-process">Exploitation Process</h4>
+<h4>Exploitation Process</h4>
 <ul>
 <li>Generate a reverse shell payload using <code>msfvenom</code> </li>
 </ul>
