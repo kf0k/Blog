@@ -1231,9 +1231,9 @@ Example of the generated obfuscated script: </p>
         <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="n">PowerShell</span> <span class="n">ps</span> <span class="p">=</span> <span class="n">PowerShell</span><span class="p">.</span><span class="n">Create</span><span class="p">();</span>
-            <span class="kt">string</span> <span class="n">bypassamsi</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
-            <span class="kt">string</span> <span class="n">psrun</span><span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
-            <span class="n">ps</span><span class="p">.</span><span class="n">AddScript</span><span class="p">(</span><span class="n">bypassamsi</span><span class="p">);</span>
+<span class="hll">            <span class="kt">string</span> <span class="n">bypassamsi</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+</span><span class="hll">            <span class="kt">string</span> <span class="n">psrun</span><span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+</span>            <span class="n">ps</span><span class="p">.</span><span class="n">AddScript</span><span class="p">(</span><span class="n">bypassamsi</span><span class="p">);</span>
             <span class="n">ps</span><span class="p">.</span><span class="n">AddScript</span><span class="p">(</span><span class="n">psrun</span><span class="p">);</span>
             <span class="n">ps</span><span class="p">.</span><span class="n">Invoke</span><span class="p">();</span>
         <span class="p">}</span>
