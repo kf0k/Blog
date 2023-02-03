@@ -1351,7 +1351,7 @@ Host<span class="w"> </span>script<span class="w"> </span>results:
 </code></pre></div>
 <p>By looking into <code>nmap</code> scan results, the ports 53, 389, and 636 are open which mean the server is Domain Controller. Furthermore, the main domain is flight.htb and the hostname is g0</p>
 <h3 id="web-enumeration">Web Enumeration<a class="headerlink" href="#web-enumeration" title="Permanent link">&para;</a></h3>
-<p>The main website is statice website and does not have any functions to play with. </p>
+<p>The main website is static website and does not have any functions to play with. </p>
 <h3 id="subdomain-enumeration">Subdomain Enumeration<a class="headerlink" href="#subdomain-enumeration" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>gobuster<span class="w"> </span>dns<span class="w"> </span>-d<span class="w"> </span>flight.htb<span class="w"> </span>-w<span class="w"> </span>/usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt
 Found:<span class="w"> </span>school.flight.htb
